@@ -195,6 +195,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Colores.cs" />
+    <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\Pedidos.cs" />
+    <Compile Include="Models\Stock_straps.cs" />
+    <Compile Include="Models\Stock_suelas.cs" />
+    <Compile Include="Models\Straps.cs" />
+    <Compile Include="Models\Sucursales.cs" />
+    <Compile Include="Models\Suelas.cs" />
+    <Compile Include="Models\Textura.cs" />
+    <Compile Include="Models\Tipo_strap.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models\Vendido.cs" />
+    <Compile Include="Models\Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -313,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
