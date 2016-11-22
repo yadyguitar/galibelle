@@ -116,3 +116,9 @@ C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\Newt
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.dll
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.pdb
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Net.Http.Formatting.dll
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Web.Http.dll
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Web.Http.WebHost.dll
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Net.Http.Formatting.xml
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Web.Http.xml
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\System.Web.Http.WebHost.xml
