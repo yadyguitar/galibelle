@@ -11,7 +11,7 @@ namespace galibelle.Models
     public class Straps
     {
         [Key]
-        public int id_straps { get; set; }
+        public int IdStraps { get; set; }
         public string codigo_strap { get; set; }
 
         [Display(Name = "Modelos")]

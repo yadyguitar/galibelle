@@ -14,7 +14,7 @@ namespace galibelle.Models
         public int id_stock_straps { get; set; }
 
         [Display(Name = "Straps")]
-        public int id_strap { get; set; }
+        public int IdStraps { get; set; }
 
         [Display(Name = "Tipo_strap")]
         public int id_tipo_strap { get; set; }
@@ -27,7 +27,9 @@ namespace galibelle.Models
         public int temporada { get; set; }
         
 
+        [ForeignKey("IdStraps")]
         public virtual IEnumerable<Straps> Straps { get; set; }
+
         public virtual IEnumerable<Tipo_strap> Tipo_strap { get; set; }
         public virtual IEnumerable<Sucursales> Sucursales { get; set; }
         public virtual ICollection<Vendido> Vendido { get; set; }
