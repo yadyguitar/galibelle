@@ -11,16 +11,17 @@ namespace galibelle.Models
     public class Usuarios
     {
         [Key]
-        public int id_usuario { get; set; }
+        public int IdUsuario { get; set; }
 
         [Display(Name ="Sucursales")]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
 
         public string usuario { get; set; }
 
         [DataType(DataType.Password)]
         public string password { get; set; }
 
+        [ForeignKey("IdSucursales")]
         public virtual Sucursales Sucursales { get; set; }
 
 

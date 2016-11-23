@@ -11,7 +11,7 @@ namespace galibelle.Models
     public class Colores
     {
         [Key]
-        public int id_colores { get; set;}
+        public int IdColores { get; set;}
         public string nombre_color { get; set; }
 
         public virtual ICollection<Tipo_strap> Tipo_strap { get; set; }

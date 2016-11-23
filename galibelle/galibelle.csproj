@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ButtonsController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ChartjsController.cs" />
+    <Compile Include="Controllers\ColoresController.cs" />
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
@@ -192,6 +193,8 @@
     <Compile Include="Controllers\ScreenController.cs" />
     <Compile Include="Controllers\TablaController.cs" />
     <Compile Include="Controllers\TodoListController.cs" />
+    <Compile Include="DAL\MyDbContext.cs" />
+    <Compile Include="DAL\MyDBInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,6 +329,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Colores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -15,10 +15,12 @@ namespace galibelle.Models
         public string codigo_strap { get; set; }
 
         [Display(Name = "Modelos")]
-        public int id_modelo { get; set; }
+        public int IdModelos { get; set; }
 
         public string letra_strap { get; set; }
         public float precio_strap { get; set; }
+
+        [ForeignKey("IdModelos")]
         public virtual IEnumerable <Modelos> Modelos { get; set; }
         public virtual ICollection<Stock_straps> Stock_straps { get; set; }
         public virtual ICollection <Pedidos> Pedidos { get; set; }

@@ -11,16 +11,16 @@ namespace galibelle.Models
     public class Stock_straps
     {
         [Key]
-        public int id_stock_straps { get; set; }
+        public int IdStock_straps { get; set; }
 
         [Display(Name = "Straps")]
         public int IdStraps { get; set; }
 
         [Display(Name = "Tipo_strap")]
-        public int id_tipo_strap { get; set; }
+        public int IdTipo_strap { get; set; }
 
         [Display(Name = "Sucursales")]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
 
         public string size_strap { get; set; }
         public int cantidad { get; set; }
@@ -29,9 +29,11 @@ namespace galibelle.Models
 
         [ForeignKey("IdStraps")]
         public virtual IEnumerable<Straps> Straps { get; set; }
-
+        [ForeignKey("IdTipo_strap")]
         public virtual IEnumerable<Tipo_strap> Tipo_strap { get; set; }
+        [ForeignKey("IdSucursales")]
         public virtual IEnumerable<Sucursales> Sucursales { get; set; }
+
         public virtual ICollection<Vendido> Vendido { get; set; }
 
     }

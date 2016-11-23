@@ -11,14 +11,15 @@ namespace galibelle.Models
     public class Suelas
     {
         [Key]
-        public int id_suelas { get; set; }
+        public int IdSuelas { get; set; }
 
         [Display(Name="Modelos")]
-        public int id_modelos { get; set; }
+        public int IdModelos { get; set; }
 
         public string nombre_suela { get; set; }
         public float precio_suela { get; set; }
 
+        [ForeignKey("IdModelos")]
         public virtual IEnumerable<Modelos> Modelos { get; set; }
         public virtual ICollection<Pedidos> Pedidos { get; set; }
         public virtual ICollection<Stock_suelas> Stock_suelas { get; set; }

@@ -11,7 +11,7 @@ namespace galibelle.Models
     public class Modelos
     {
         [Key]
-        public int id_modelos { get; set; }
+        public int IdModelos { get; set; }
         public string nombre_modelo { get; set; }
 
         public virtual ICollection<Suelas> Suelas { get; set; }

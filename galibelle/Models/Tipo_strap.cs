@@ -11,17 +11,19 @@ namespace galibelle.Models
     public class Tipo_strap
     {
         [Key]
-        public int id_tipo_strap { get; set; }
+        public int IdTipo_strap { get; set; }
 
-        //[ForeignKey("id_colores")]
+        //[ForeignKey("IdColores")]
         [Display (Name ="Colores") ]
-        public int id_colores { get; set; }
+        public int IdColores { get; set; }
 
-        //[ForeignKey("id_textura")]
+        //
         [Display(Name = "Textura")]
-        public int id_textura { get; set; }
+        public int IdTextura { get; set; }
 
+        [ForeignKey("IdColores")]
         public virtual IEnumerable<Colores> Colores { get; set; }
+        [ForeignKey("IdTextura")]
         public virtual IEnumerable<Textura> Textura { get; set; }
         public virtual ICollection<Stock_straps> Stock_straps { get; set; }
     }

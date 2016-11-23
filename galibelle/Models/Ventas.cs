@@ -11,13 +11,13 @@ namespace galibelle.Models
     public class Ventas
     {
         [Key]
-        public int id_ventas { get; set; }
+        public int IdVentas { get; set; }
         public DateTime fecha_venta { get; set; }
-        public double precio_Total { get; set; }
 
         [Display(Name ="Sucursales")]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
 
+        [ForeignKey("IdSucursales")]
         public virtual IEnumerable<Sucursales> Sucursales { get; set; }
         public virtual ICollection<Vendido> Vendido { get; set; }
 

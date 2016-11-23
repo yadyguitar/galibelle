@@ -11,7 +11,7 @@ namespace galibelle.Models
     public class Sucursales
     {
         [Key]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
 
         public string nombre_sucursal { get; set; }
         public string direccion_sucursal { get; set; }

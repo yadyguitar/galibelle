@@ -11,19 +11,21 @@ namespace galibelle.Models
     public class Stock_suelas
     {
         [Key]
-        public int id_stock_suelas { get; set; }
+        public int IdStock_suelas { get; set; }
 
         [Display(Name ="Suelas")]
-        public int id_suelas { get; set; }
+        public int IdSuelas { get; set; }
 
         public float talla_suela { get; set; }
         public int cantidad_suela { get; set; }
 
         [Display(Name = "Sucursales")]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
         public int temporada { get; set; }
-        
+
+        [ForeignKey("IdSuelas")]
         public virtual IEnumerable<Suelas> Suelas { get; set; }
+        [ForeignKey("IdSucursales")]
         public virtual IEnumerable<Sucursales>Sucursales { get; set; }
     }
 }

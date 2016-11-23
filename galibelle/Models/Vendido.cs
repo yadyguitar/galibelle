@@ -11,19 +11,21 @@ namespace galibelle.Models
     public class Vendido
     {
         [Key]
-        public int id_producto_vendido { get; set; }
+        public int IdVendido { get; set; }
 
         [Display(Name ="Stock_straps")]
-        public int id_stock_straps { get; set; }
+        public int IdStock_straps { get; set; }
 
         [Display(Name = "Stock_suelas")]
-        public int id_stock_suelas { get; set; }
+        public int IdStock_suelas { get; set; }
 
         [Display(Name = "Ventas")]
-        public int id_ventas { get; set; }
+        public int IdVentas { get; set; }
 
         public virtual IEnumerable<Stock_straps> Stock_straps { get; set; }
         public virtual IEnumerable<Stock_suelas> Stock_suelas { get; set; }
+
+        [ForeignKey("IdVentas")]
         public virtual IEnumerable<Ventas> Ventas { get; set; }
         
 

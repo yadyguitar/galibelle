@@ -11,20 +11,22 @@ namespace galibelle.Models
     public class Pedidos
     {
         [Key]
-        public int id_pedidos { get; set; }
+        public int IdPedidos { get; set; }
         
         [Display(Name ="Suelas")]
-        public int id_suelas { get; set; }
+        public int IdSuelas { get; set; }
 
         [Display(Name = "Straps")]
-        public int id_straps { get; set; }
+        public int IdStraps { get; set; }
 
         [Display(Name = "Sucursales")]
-        public int id_sucursales { get; set; }
+        public int IdSucursales { get; set; }
 
-
+        [ForeignKey("IdSuelas")]
         public virtual IEnumerable <Suelas> Suelas { get; set; }
+        [ForeignKey("IdStraps")]
         public virtual IEnumerable<Straps> Straps { get; set; }
+        [ForeignKey("IdSucursales")]
         public virtual IEnumerable<Sucursales > Sucursales { get; set; }
 
     }

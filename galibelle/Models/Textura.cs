@@ -11,7 +11,7 @@ namespace galibelle.Models
     public class Textura
     {
         [Key]
-        public int id_textura { get; set; }
+        public int IdTextura { get; set; }
         public string nombre_Textura { get; set; }
 
         public virtual ICollection<Tipo_strap> Tipo_Srap { get; set; }
