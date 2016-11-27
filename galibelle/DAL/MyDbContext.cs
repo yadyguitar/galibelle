@@ -39,8 +39,8 @@ namespace galibelle.DAL
             {
                 base.OnModelCreating(modelBuilder);
                 modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-                //modelBuilder.Entity<HistoryRow>().Property(h => h.MigrationId).HasMaxLength(100).IsRequired();
-                //modelBuilder.Entity<HistoryRow>().Property(h => h.ContextKey).HasMaxLength(200).IsRequired();
+            //modelBuilder.Entity<HistoryRow>().Property(h => h.MigrationId).HasMaxLength(100).IsRequired();
+               //modelBuilder.Entity<HistoryRow>().Property(h => h.ContextKey).HasMaxLength(200).IsRequired();
             }
 
         }
