@@ -16,7 +16,30 @@ namespace galibelle.Controllers
         
             return View();
         }
-       
-       
+        // GET: Prueba
+        public ActionResult ListaSucursales()
+        {
+
+            return View();
+        }
+        // GET: Prueba
+        public ActionResult PedidosSucursal()
+        {
+
+            return View();
+        }
+        // GET: Prueba
+        public ActionResult StockSucursal()
+        {
+
+            return View();
+        }
+        // GET: Prueba
+        public ActionResult Straps()
+        {
+
+            return View();
+        }
+
     }
 }

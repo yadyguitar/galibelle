@@ -215,6 +215,7 @@
     <Content Include="icon\style.css" />
     <Content Include="img\blog-bg.jpg" />
     <Content Include="img\checkbox-gray.png" />
+    <Content Include="img\ejemplo.jpg" />
     <Content Include="img\friends\fr-01.jpg" />
     <Content Include="img\friends\fr-02.jpg" />
     <Content Include="img\friends\fr-03.jpg" />
