@@ -258,6 +258,7 @@
     <Content Include="Scripts\chart-master\Chart.js" />
     <Content Include="Scripts\chartjs-conf.js" />
     <Content Include="Scripts\common-scripts.js" />
+    <Content Include="Scripts\dataTables.bootstrap.js" />
     <Content Include="Scripts\easy-pie-chart.js" />
     <Content Include="Scripts\fancybox\jquery.fancybox.css" />
     <Content Include="Scripts\fancybox\jquery.fancybox.js" />
