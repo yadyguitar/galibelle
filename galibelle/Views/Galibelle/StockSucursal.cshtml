@@ -1,4 +1,48 @@
-﻿<section id="container">
+﻿<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    #myInput {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+            #myTable tr.header, #myTable tr:hover {
+                background-color: #f1f1f1;
+            }
+</style>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet"
+      href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript"
+        src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+        src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<section id="container">
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
@@ -8,7 +52,7 @@
                         <div class="grey-header2 col-md-12">
 
                             <div class="col-md-12">
-                                <h3 style="font-weight:bold; color:white;">STOCK DE LA SUCURSAL</h3>
+                                <h3 style="font-weight:bold; color:white;">STOCK</h3>
                             </div>
                         </div>
                     </div>
@@ -17,46 +61,15 @@
             <div class="panel panel-white">
 
                 <div class="panel-body">
-                    <button type="button" class="btn btn-success m-b-sm pull-left">Regresar</button>
+                    <button type="button" onclick="location.href='@Url.Action("ListaSucursales","Galibelle")'" class="btn btn-success m-b-sm" >Regresar</button>
 
-                    <!-- Modal -->
-                    <form id="add-row-form" action="javascript:void(0);">
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <input type="text" id="name-input" class="form-control" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="position-input" class="form-control" placeholder="Position" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="age-input" class="form-control" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                        <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                   
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
-                        <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+
+
+                        <table id="myTable1" class="display table" style="width: 100%; cellspacing: 0;">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -65,7 +78,7 @@
                                     <th>Color</th>
                                     <th>Textura</th>
                                     <th>Combo</th>
-
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -76,7 +89,7 @@
                                     <th>Color</th>
                                     <th>Textura</th>
                                     <th>Combo</th>
-
+                                    <th></th>
                                 </tr>
                             </tfoot>
 
@@ -91,7 +104,13 @@
                                     <td><a>22</a></td>
                                     <td><a>2012/03/29</a></td>
                                     <td><a>$433,060</a></td>
-
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
                                 </tr>
 
                                 <tr>
@@ -101,7 +120,13 @@
                                     <td><a>63</a></td>
                                     <td><a>2010/01/04</a></td>
                                     <td><a>$125,250</a></td>
-
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td><a>Zorita Serrano</a></td>
@@ -110,7 +135,13 @@
                                     <td><a>56</a></td>
                                     <td><a>2012/06/01</a></td>
                                     <td><a>$115,000</a></td>
-
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
                                 </tr>
 
                             </tbody>
@@ -119,6 +150,12 @@
                     </div>
                 </div>
 
+
+
+
+
+               
+                   
         </section>
     </section>
 
@@ -128,3 +165,10 @@
     <!--footer end-->
 </section>
 <!-- js placed at the end of the document so the pages load faster -->
+<script>
+$(document).ready(function(){
+    $('#myTable1').dataTable();
+   
+});
+</script>
+
