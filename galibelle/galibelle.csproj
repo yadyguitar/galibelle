@@ -302,26 +302,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Galibelle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Colores\" />
     <Folder Include="Views\Modelos\" />
-    <Folder Include="Views\Pedidos\" />
-    <Folder Include="Views\Stock_straps\" />
-    <Folder Include="Views\Stock_suelas\" />
-    <Folder Include="Views\Straps\" />
-    <Folder Include="Views\Sucursales\" />
-    <Folder Include="Views\Suelas\" />
-    <Folder Include="Views\Textura\" />
-    <Folder Include="Views\Tipo_strap\" />
-    <Folder Include="Views\Usuarios\" />
-    <Folder Include="Views\Vendido\" />
-    <Folder Include="Views\Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -336,14 +322,10 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Tabla\Tabla.cshtml" />
     <Content Include="Views\Blank\Blank.cshtml" />
-    <Content Include="Views\Buttons\Buttons.cshtml" />
-    <Content Include="Views\Calendar\Calendar.cshtml" />
     <Content Include="Views\Chartjs\Chartjs.cshtml" />
     <Content Include="Views\Form\Form.cshtml" />
-    <Content Include="Views\Gallery\Gallery.cshtml" />
-    <Content Include="Views\General\General.cshtml" />
     <Content Include="Views\Screen\Screen.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Galibelle\Login.cshtml" />
     <Content Include="Views\Morris\Morris.cshtml" />
     <Content Include="Views\Panels\Panels.cshtml" />
     <Content Include="Views\ResponsiveTable\ResponsiveTable.cshtml" />
