@@ -34,6 +34,14 @@
                 background-color: #f1f1f1;
             }
 </style>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet"
+      href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript"
+        src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+        src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <section id="container">
     <!--main content start-->
     <section id="main-content">
@@ -91,9 +99,9 @@
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+                        
 
-                         <table id="myTable"  class="display table" style="width: 100%; cellspacing: 0;">
+                         <table id="myTable1"  class="display table" style="width: 100%; cellspacing: 0;">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -231,7 +239,7 @@
                         <div class="table-responsive">
                             <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                             <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
-                            <table id="example-editable" class="display table" style="width: 100%; cellspacing: 0;">
+                            <table id="myTable2" class="display table" style="width: 100%; cellspacing: 0;">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -325,24 +333,8 @@
 </section>
 <!-- js placed at the end of the document so the pages load faster -->
 <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
+$(document).ready(function(){
+    $('#myTable1').dataTable();
+    $('#myTable2').dataTable();
+});
 </script>
