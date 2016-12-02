@@ -2301,4 +2301,8 @@ label {
     min-height: 900px;
 }
 
+.dataTables_length , .dataTables_filter{
+    margin-top:2% !important;
+    color:#311B92 !important;
+}
 
