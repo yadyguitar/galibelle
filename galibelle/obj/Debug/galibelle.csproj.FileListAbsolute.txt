@@ -61,7 +61,6 @@ C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\Antlr3.Runtime.pdb
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\Newtonsoft.Json.xml
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.dll
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.pdb
-C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\roslyn\csc.exe
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll

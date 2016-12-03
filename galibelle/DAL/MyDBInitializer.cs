@@ -6,7 +6,7 @@ using galibelle.Models;
 
 namespace galibelle.DAL
 {
-    public class MyDBInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<MyDbContext>
+    public class MyDBInitializer : System.Data.Entity.CreateDatabaseIfNotExists<MyDbContext>
     {
         protected override void Seed(MyDbContext context)
         {

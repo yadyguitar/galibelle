@@ -45,5 +45,20 @@ namespace galibelle.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Usuarios u) {
+            if (ModelState.IsValid) {
+                var db = Utils.GalibelleContext;
+                var v = db.Usuarios.Where(a => a.usuario.Equals(u.usuario) && a.password.Equals(u.password)).FirstOrDefault();
+                if (v != null) {
+                    Session["LogedUserID"] = v.IdUsuario.ToString();
+                    Session["LogedUserName"] = v.usuario.ToString();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(u);
+        }
+
     }
 }
