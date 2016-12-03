@@ -84,36 +84,41 @@
                             </div>
 
                         </div>
-                        <div class="row">
-                           <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                        <div class="row" style="margin-top:8%;">
+                           <a href="@Url.Action("StockSucursal", "Galibelle")">
+                           <div class="col-md-3 col-sm-3 box0">
+                          
                   			<div class="box1">
-					  			<span class="li_heart"></span>
+					  			<span class="fa fa-database"></span>
 					  			<h3>933</h3>
                   			</div>
-					  			<p>933 People liked your page the last 24hs. Whoohoo!</p>
-                  		</div><!-- col-lg-4 -->
-                            <div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_cloud"></span>
-					  			<h3>+48</h3>
-                  			</div>
-					  			<p>48 New files were added in your cloud storage.</p>
-                  		</div><!-- col-lg-4 -->
-                            <div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_stack"></span>
-					  			<h3>23</h3>
-                  			</div>
-					  			<p>You have 23 unread messages in your inbox.</p>
-                  		</div><!-- col-lg-4 -->
-                           <div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_news"></span>
-					  			<h3>+10</h3>
-                  			</div>
-					  			<p>More than 10 news were added in your reader.</p>
-                  		</div><!-- col-lg-4 -->
-                        </div>
+					  			<p>Productos en el stock de la sucursal.</p>
+                  		</div></a>
+                            <a href="@Url.Action("Ventas", "Galibelle")">
+                                <div class="col-md-3 col-sm-3 box0">
+                                    <div class="box1">
+                                        <span class="fa fa-dollar"></span>
+                                        <h3>+48</h3>
+                                    </div>
+                                    <p>Ventas realizadas por la sucursal</p>
+                                </div><!-- col-lg-4 --></a>
+                            <a href="@Url.Action("Estadisticas", "Galibelle")">
+                                <div class="col-md-3 col-sm-3 box0">
+                                    <div class="box1">
+                                        <span class="fa fa-pie-chart"></span>
+                                        <h3>Estadísticas</h3>
+                                    </div>
+                                    <p>Estadísticas</p>
+                                </div><!-- col-lg-4 --></a>
+                            <a href="@Url.Action("PedidosSucursal", "Galibelle")">
+                                <div class="col-md-3 col-sm-3 box0">
+                                    <div class="box1">
+                                        <span class="fa fa-send"></span>
+                                        <h3>+10</h3>
+                                    </div>
+                                    <p>Productos que se encuentran en espera</p>
+                                </div><!-- col-lg-4 --></a>
+</div>
 
 
                     </div>

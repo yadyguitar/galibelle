@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html style="min-height:100%; position:relative">
 <head>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -25,7 +25,7 @@
     <script src="../Scripts/chart-master/Chart.js"></script>
     <link rel="icon" type="image/png" href="~/img/ui-sam.jpg" />
 </head>
-<body>
+<body style="height:100%;">
     <header class="header black-bg">
         <div class="sidebar-toggle-box">
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -42,7 +42,7 @@
         </div>
     </header>
     <aside>
-        <div id="sidebar" class="nav-collapse ">
+        <div id="sidebar" class="nav-collapse " style="z-index:5;">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
 
@@ -96,7 +96,7 @@
     @RenderBody()
 </body>
     
-<footer class="site-footer">
+<footer class="site-footer" style="position:absolute; width:100%; bottom:-3%;z-index:3;">
     <div class="text-center">
         2016 - G A L I B E L L E
         <a href="index.html#" class="go-top">
