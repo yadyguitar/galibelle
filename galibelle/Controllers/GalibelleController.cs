@@ -16,7 +16,12 @@ namespace galibelle.Controllers
             if (Session["LogedUserID"] == null){return RedirectToAction("Login");}
             return View();
         }
-       
+        public ActionResult Estadisticas()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+
         public ActionResult ListaSucursales()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
@@ -28,7 +33,17 @@ namespace galibelle.Controllers
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             return View();
         }
-       
+        public ActionResult VentasSucursal()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+        public ActionResult EstadisticasSucursal()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+
         public ActionResult StockSucursal()
         {
 
@@ -46,6 +61,12 @@ namespace galibelle.Controllers
                         join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                         join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura 
                         select new MyViewModel { Stock_straps = sto, Straps=str, Modelos=mod , Colores=col, Textura=text, Tipo_strap=tip };
+            return View(lista);
+        }
+        public ActionResult Suelas()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            var lista = from x in Utils.GalibelleContext.Colores select x;
             return View(lista);
         }
 

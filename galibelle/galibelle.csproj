@@ -336,6 +336,10 @@
     <Content Include="Views\Galibelle\Straps.cshtml" />
     <Content Include="Views\Galibelle\StockSucursal.cshtml" />
     <Content Include="Views\Galibelle\PedidosSucursal.cshtml" />
+    <Content Include="Views\Galibelle\Suelas.cshtml" />
+    <Content Include="Views\Galibelle\VentasSucursal.cshtml" />
+    <Content Include="Views\Galibelle\EstadisticasSucursal.cshtml" />
+    <Content Include="Views\Galibelle\Estadisticas.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
