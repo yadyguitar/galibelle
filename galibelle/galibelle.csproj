@@ -185,6 +185,7 @@
     </Compile>
     <Compile Include="Models\Colores.cs" />
     <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Models\Pedidos.cs" />
     <Compile Include="Models\Stock_straps.cs" />
     <Compile Include="Models\Stock_suelas.cs" />

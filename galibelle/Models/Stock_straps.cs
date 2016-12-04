@@ -22,6 +22,7 @@ namespace galibelle.Models
         [Display(Name = "Sucursales")]
         public int IdSucursales { get; set; }
 
+
         public string size_strap { get; set; }
         public int cantidad { get; set; }
         public int temporada { get; set; }

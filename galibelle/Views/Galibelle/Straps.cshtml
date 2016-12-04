@@ -1,4 +1,4 @@
-﻿@model IEnumerable<galibelle.Models.Colores>
+﻿@model IEnumerable<galibelle.Models.MyViewModel>
 
 <style>
     * {
@@ -108,23 +108,25 @@
                             <thead>
                                 <tr>
                                     <th>Código</th>
-                                    <!--<th>Letra</th>
                                     <th>Modelo</th>
-                                    <th>Color</th>
                                     <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>-->
+                                    <th>Colores</th>
+                                    <th>Tamaño</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                   
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Código</th>
-                                    <!--<th>Letra</th>
                                     <th>Modelo</th>
-                                    <th>Color</th>
                                     <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>-->
+                                    <th>Colores</th>
+                                    <th>Tamaño</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                   
 
                                 </tr>
                             </tfoot>
@@ -135,8 +137,13 @@
                                 @foreach (var item in Model)
                                 {
                                 <tr>
-                                    <td><a> @Html.DisplayFor(modelItem => item.nombre_color)</a></td>
-                                   
+                                    <td><a> @Html.DisplayFor(modelItem => item.Straps.codigo_strap)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Modelos.nombre_modelo)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Textura.nombre_Textura)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Colores.nombre_color)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.size_strap)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.cantidad)</a></td>
+                                    <td><a> @Html.DisplayFor(modelItem => item.Straps.precio_strap)</a></td>                                   
                                 </tr>
                                 }
                               

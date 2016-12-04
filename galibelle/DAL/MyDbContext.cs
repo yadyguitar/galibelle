@@ -29,7 +29,7 @@ namespace galibelle.DAL
             public DbSet<Sucursales> Sucursales{ get; set; }
             public DbSet<Suelas> Suelas{ get; set; }
             public DbSet<Textura> Textura{ get; set; }
-            public DbSet<Tipo_strap> Tipo_strao{ get; set; }
+            public DbSet<Tipo_strap> Tipo_strap{ get; set; }
             public DbSet<Usuarios> Usuarios{ get; set; }
             public DbSet<Vendido> Vendido{ get; set; }
             public DbSet<Ventas> Ventas{ get; set; }

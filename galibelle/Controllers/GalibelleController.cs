@@ -39,7 +39,13 @@ namespace galibelle.Controllers
         public ActionResult Straps()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
-            var lista = from x in Utils.GalibelleContext.Colores select x;
+            var lista = from sto in Utils.GalibelleContext.Stock_straps
+                        join str in Utils.GalibelleContext.Straps on sto.IdStraps equals str.IdStraps
+                        join mod in Utils.GalibelleContext.Modelos on str.IdModelos equals mod.IdModelos
+                        join tip in Utils.GalibelleContext.Tipo_strap on sto.IdTipo_strap equals tip.IdTipo_strap
+                        join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
+                        join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura 
+                        select new MyViewModel { Stock_straps = sto, Straps=str, Modelos=mod , Colores=col, Textura=text, Tipo_strap=tip };
             return View(lista);
         }
 
