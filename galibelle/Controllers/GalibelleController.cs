@@ -10,38 +10,42 @@ namespace galibelle.Controllers
 {
     public class GalibelleController : Controller
     {
-        // GET: Prueba
+      
         public ActionResult Index()
         {
-        
+            if (Session["LogedUserID"] == null){return RedirectToAction("Login");}
             return View();
         }
-        // GET: Prueba
+       
         public ActionResult ListaSucursales()
         {
-
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             return View();
         }
-        // GET: Prueba
+       
         public ActionResult PedidosSucursal()
         {
-
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             return View();
         }
-        // GET: Prueba
+       
         public ActionResult StockSucursal()
         {
 
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             return View();
         }
-        // GET: Prueba
+      
         public ActionResult Straps()
         {
-
-            return View();
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            var lista = from x in Utils.GalibelleContext.Colores select x;
+            return View(lista);
         }
 
         public ActionResult Login() {
+            Session.Clear();
+            Session.RemoveAll();
             return View();
         }
 

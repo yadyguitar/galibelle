@@ -13,14 +13,20 @@ namespace galibelle.Controllers
         // GET: Colores
         public ActionResult Index()
         {
+            /*
             var db = Utils.GalibelleContext;
             System.Console.WriteLine("Hola, prueba: ", db);
             db.Colores.Add(new Colores() { nombre_color = "red" });
             db.Colores.Add(new Colores() { nombre_color = "black" });
             db.Colores.Add(new Colores() { nombre_color = "red" });
             db.SaveChanges();
-    
-            return View();
+            */
+            var lista = from x in Utils.GalibelleContext.Colores select x;
+
+           
+
+            return View(lista);
         }
+
     }
 }
