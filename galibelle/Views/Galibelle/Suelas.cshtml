@@ -54,7 +54,7 @@
                         <div class="grey-header2 col-md-12">
 
                             <div class="col-md-12">
-                                <h3 style="font-weight:bold; color:white;">STOCK DE STRAPS</h3>
+                                <h3 style="font-weight:bold; color:white;">STOCK DE SUELAS</h3>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
             <div class="panel panel-white">
 
                 <div class="panel-body">
-                    <button type="button" onclick="location.href='@Url.Action("Index","Galibelle")'" class="btn btn-success m-b-sm pull-left" >Regresar</button>
-                    <button type="button" class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nuevo strap</button>
+                    <button type="button" onclick="location.href='@Url.Action("Index","Galibelle")'" class="btn btn-success m-b-sm pull-left">Regresar</button>
+                    <button type="button" class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nueva suela</button>
                     <!-- Modal -->
                     <form id="add-row-form" action="javascript:void(0);">
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -72,7 +72,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Nueva Suela</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
@@ -102,9 +102,9 @@
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
-                        
 
-                         <table id="myTable1"  class="display table" style="width: 100%; cellspacing: 0;">
+
+                        <table id="myTable1" class="display table" style="width: 100%; cellspacing: 0;">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -134,12 +134,12 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                <tr>
-                                    <td><a> @Html.DisplayFor(modelItem => item.nombre_color)</a></td>
-                                   
-                                </tr>
+                                    <tr>
+                                        <td><a> @Html.DisplayFor(modelItem => item.nombre_color)</a></td>
+
+                                    </tr>
                                 }
-                              
+
                             </tbody>
                         </table>
 
@@ -156,7 +156,7 @@
                             <div class="grey-header2 col-md-12">
 
                                 <div class="col-md-12">
-                                    <h3 style="font-weight:bold; color:white;">PEDIDOS DE STRAPS</h3>
+                                    <h3 style="font-weight:bold; color:white;">PEDIDOS DE SUELAS</h3>
                                 </div>
                             </div>
                         </div>

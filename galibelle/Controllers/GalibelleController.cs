@@ -16,7 +16,12 @@ namespace galibelle.Controllers
             if (Session["LogedUserID"] == null){return RedirectToAction("Login");}
             return View();
         }
-       
+        public ActionResult Estadisticas()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+
         public ActionResult ListaSucursales()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
@@ -28,7 +33,17 @@ namespace galibelle.Controllers
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             return View();
         }
-       
+        public ActionResult VentasSucursal()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+        public ActionResult EstadisticasSucursal()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            return View();
+        }
+
         public ActionResult StockSucursal()
         {
 
@@ -37,6 +52,12 @@ namespace galibelle.Controllers
         }
       
         public ActionResult Straps()
+        {
+            if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
+            var lista = from x in Utils.GalibelleContext.Colores select x;
+            return View(lista);
+        }
+        public ActionResult Suelas()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             var lista = from x in Utils.GalibelleContext.Colores select x;
