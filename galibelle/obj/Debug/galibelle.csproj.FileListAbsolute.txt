@@ -125,3 +125,4 @@ C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\Antlr3.Runtime.pdb
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\bin\Newtonsoft.Json.xml
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.dll
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.pdb
+C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache

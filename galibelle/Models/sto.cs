@@ -5,8 +5,9 @@ using System.Web;
 
 namespace galibelle.Models
 {
-    public class MyViewModel
+    public class sto
     {
+        public IEnumerable<MyViewModel> MyModelView;
         public Stock_straps Stock_straps { get; set; }
         public Straps Straps { get; set; }
         public Colores Colores { get; set; }
@@ -21,7 +22,5 @@ namespace galibelle.Models
         public Ventas Ventas { get; set; }
         public Modelos Modelos { get; set; }
 
-
-       
     }
 }
