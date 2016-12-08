@@ -10,7 +10,7 @@ namespace galibelle.Controllers
 {
     public class GalibelleController : Controller
     {
-      
+
         public ActionResult Index()
         {
             if (Session["LogedUserID"] == null){return RedirectToAction("Login");}
@@ -62,7 +62,7 @@ namespace galibelle.Controllers
                         join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
                        
                         select new MyViewModel { Stock_straps = sto, Straps=str, Modelos=mod , Colores=col, Textura=text, Tipo_strap=tip };
-           
+
             /*
             try
             {
@@ -82,8 +82,8 @@ namespace galibelle.Controllers
                 System.Diagnostics.Debug.WriteLine("error");
             }
             */
-            
-            return View(lista);
+            ViewBag.MyViewModel = lista;
+            return View();
         }
         public ActionResult Suelas()
         {
@@ -107,10 +107,68 @@ namespace galibelle.Controllers
                 if (v != null) {
                     Session["LogedUserID"] = v.IdUsuario.ToString();
                     Session["LogedUserName"] = v.usuario.ToString();
+                    Session["IdSucursal"] = v.IdSucursales.ToString();
                     return RedirectToAction("Index");
                 }
             }
             return View(u);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult guardaStrap(MyViewModel v)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var db = Utils.GalibelleContext;
+                    int idcol = (from col in Utils.GalibelleContext.Colores where col.nombre_color == v.Colores.nombre_color select col.IdColores).First();
+                    int idtext = (from tx in Utils.GalibelleContext.Textura where tx.nombre_Textura == v.Textura.nombre_Textura select tx.IdTextura).First();
+                    db.Stock_straps.Add(new Stock_straps()
+                    {
+                        IdStraps = (from str in Utils.GalibelleContext.Straps where str.codigo_strap == v.Straps.codigo_strap select str.IdStraps).First(),
+                        IdTipo_strap = (from tip in Utils.GalibelleContext.Tipo_strap where tip.IdColores == idcol && tip.IdTextura == idtext select tip.IdTipo_strap).First(),
+                        IdSucursales = Convert.ToInt32(Session["IdSucursal"]),
+                        size_strap = v.Stock_straps.size_strap.ToString(),
+                        cantidad = v.Stock_straps.cantidad,
+                        temporada = v.Stock_straps.temporada
+                    });
+
+                    //db.SaveChangesAsync();
+                    db.SaveChanges();
+                    return RedirectToAction("Straps");
+                }
+                catch
+                {
+                    try
+                    {
+                        var db = Utils.GalibelleContext;
+                        
+                        int idcol = (from col in Utils.GalibelleContext.Colores where col.nombre_color == v.Colores.nombre_color select col.IdColores).First();
+                        int idtext = (from tx in Utils.GalibelleContext.Textura where tx.nombre_Textura == v.Textura.nombre_Textura select tx.IdTextura).First();
+                        db.Tipo_strap.Add(new Tipo_strap { IdColores=idcol,IdTextura=idtext});
+                        db.SaveChanges();
+                        db.Stock_straps.Add(new Stock_straps()
+                        {
+                            IdStraps = (from str in Utils.GalibelleContext.Straps where str.codigo_strap == v.Straps.codigo_strap select str.IdStraps).First(),
+                            IdTipo_strap = (from tip in Utils.GalibelleContext.Tipo_strap where tip.IdColores == idcol && tip.IdTextura == idtext select tip.IdTipo_strap).First(),
+                            IdSucursales = Convert.ToInt32(Session["IdSucursal"]),
+                            size_strap = v.Stock_straps.size_strap.ToString(),
+                            cantidad = v.Stock_straps.cantidad,
+                            temporada = v.Stock_straps.temporada
+                        });
+
+                        //db.SaveChangesAsync();
+                        db.SaveChanges();
+                        return RedirectToAction("Straps");
+                    }
+                    catch {
+
+                    }
+                }
+            }
+            return View();
         }
 
     }
