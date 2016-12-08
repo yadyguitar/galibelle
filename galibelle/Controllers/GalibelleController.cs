@@ -263,15 +263,22 @@ namespace galibelle.Controllers
                         var db = Utils.GalibelleContext;
                         int idcol = (from col in Utils.GalibelleContext.Colores where col.nombre_color == v.Colores.nombre_color select col.IdColores).First();
                         int idtext = (from tx in Utils.GalibelleContext.Textura where tx.nombre_Textura == v.Textura.nombre_Textura select tx.IdTextura).First();
-                        if (((from tip in Utils.GalibelleContext.Tipo_strap where tip.IdColores == idcol && tip.IdTextura == idtext select tip).First()) ==null) {
-                            db.Tipo_strap.Add(new Tipo_strap { IdColores=idcol,IdTextura=idtext});
-                            db.SaveChanges();
-                        }
-                        if (((from tip in Utils.GalibelleContext.Tipo_strap where tip.IdColores == idcol && tip.IdTextura == idtext select tip).First()) ==null) {
-                            db.Straps.Add(new Straps { codigo_strap=v.Straps.codigo_strap, IdModelos=v.Straps.IdModelos });
-                            db.SaveChanges();
-                        }
 
+                        System.Diagnostics.Debug.WriteLine(idcol);
+                        System.Diagnostics.Debug.WriteLine(idtext);
+
+
+                        try { var temp = (from tip in Utils.GalibelleContext.Tipo_strap where tip.IdColores == idcol && tip.IdTextura == idtext select tip).First(); } catch {
+                            db.Tipo_strap.Add(new Tipo_strap { IdColores = idcol, IdTextura = idtext });
+                            db.SaveChanges();
+                        }
+                        try { var temp = (from str in Utils.GalibelleContext.Straps where str.codigo_strap == v.Straps.codigo_strap select str).First(); } catch {
+                            int idmod = (from mod in Utils.GalibelleContext.Modelos where mod.nombre_modelo == v.Modelos.nombre_modelo select mod.IdModelos).First();
+                            System.Diagnostics.Debug.WriteLine(idmod);
+                            db.Straps.Add(new Straps { codigo_strap = v.Straps.codigo_strap, IdModelos = idmod });
+                            db.SaveChanges();
+                        }
+                        
                         //db.Tipo_strap.Add(new Tipo_strap { IdColores=idcol,IdTextura=idtext});
                         //db.SaveChanges();
                         db.Stock_straps.Add(new Stock_straps()
@@ -281,7 +288,8 @@ namespace galibelle.Controllers
                             IdSucursales = Convert.ToInt32(Session["IdSucursal"]),
                             size_strap = v.Stock_straps.size_strap.ToString(),
                             cantidad = v.Stock_straps.cantidad,
-                            temporada = v.Stock_straps.temporada
+                            temporada = v.Stock_straps.temporada,
+                            precio_strap_unitario=v.Stock_straps.precio_strap_unitario
                         });
 
                         //db.SaveChangesAsync();
@@ -293,7 +301,7 @@ namespace galibelle.Controllers
                     }
                 }
             }
-            return RedirectToAction("~/Shared/Error.cshtml");
+            return RedirectToAction("~/Error.cshtml");
         }
 
 
