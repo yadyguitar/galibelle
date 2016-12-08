@@ -32,10 +32,10 @@
     </script>
     <header class="header black-bg">
         <div class="sidebar-toggle-box">
-            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="" onclick="mostrar()"></div>
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="" onclick="mostrar()" ></div>
         </div>
         <!--logo start-->
-        <a href='@Url.Action("Index","Galibelle")' class="logo" style="visibility:hidden;" id="nombre"><b>GALIBELLE</b></a>
+        <a href='@Url.Action("Index","Galibelle")' class="logo" style="visibility:hidden;" id="nombre" ><b>GALIBELLE</b></a>
         <!--logo end-->
 
 
@@ -45,56 +45,43 @@
             </ul>
         </div>
     </header>
-        <aside>
-            <div id="sidebar" class="nav-collapse " style="z-index:5;">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu" id="nav-accordion" style="margin-top:50%;">
-                    <div class="img-circle" style="width:55%; height:27%; background:#ffd777; padding-bottom:8%;padding-top:8%; border:1px solid; border-color:#C79D21; margin:0 auto" ;>
-                        <p class="centered"><a href='@Url.Action("Index","Galibelle")'><img style="color:blue; padding-top:15%; padding-bottom:15%;" src="../img/icono.png" width="90"></a></p>
-                    </div>
-                    <a data-toggle="modal" href="#myModal5"><h5 class="centered">Administrador</h5></a>
+    <aside>
+        <div id="sidebar" class="nav-collapse " style="z-index:5;">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion" style="margin-top:50%;">
+                <div class="img-circle" style="width:55%; height:27%; background:#ffd777; padding-bottom:8%;padding-top:8%; border:1px solid; border-color:#C79D21; margin:0 auto" ;>
+                    <p class="centered"><a href="profile.html"><img style="color:blue; padding-top:15%; padding-bottom:15%;" src="../img/icono.png" width="90"></a></p>
+                </div>
+                <a data-toggle="modal" href="#myModal5"><h5 class="centered">Sucursal</h5></a>
 
+                <li class="mt">
+                    <a id="c1" href='@Url.Action("Sucursal","Galibelle")'>
+                        <i class="fa fa-database"></i>
+                        <span>Productos</span>
+                    </a>
+                </li>
 
-                    <li class="mt">
-                        <a id="c4" href='@Url.Action("Index","Galibelle")'>
-                            <i class="fa fa-star"></i>
-                            <span>Inicio</span>
-                        </a>
-                    </li>
+                <li class="sub-menu">
+                    <a id="c2" href='@Url.Action("StockExterior","Galibelle")'>
+                        <i class="fa fa-list-ul"></i>
+                        <span>Stock Exterior</span>
+                    </a>
+                  
+                </li>
 
-                    <li class="sub-menu">
-                        <a id="c5" onclick="noCambiar()">
-                            <i class="fa fa-list-alt"></i>
-                            <span>Productos</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a onclick="noCambiar()" href='@Url.Action("Straps","Galibelle")'>Straps</a></li> <!--Temporal, falta hacer el mío propio para el almacen-->
-                            <li><a onclick="noCambiar()" href='@Url.Action("Suelas","Galibelle")'>Suelas</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="sub-menu">
-                        <a id="c6" href='@Url.Action("ListaSucursales","Galibelle")'>
-                            <i class="fa fa-university"></i>
-                            <span>Sucursales</span>
-                        </a>
-                       
-                    </li>
-                    <li class="sub-menu">
-                        <a id="c7" href='@Url.Action("Estadisticas","Galibelle")'>
-                            <i class="fa fa-line-chart"></i>
-                            <span>Estadísticas</span>
-                        </a>
-
-                    </li>
-
-
-
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
-        </aside>
-        @RenderBody()
+              
+                <li class="sub-menu">
+                    <a id="c3" href='@Url.Action("PedidosSuc","Galibelle")'>
+                        <i class="fa fa-sort-amount-asc"></i>
+                        <span>Pedidos</span>
+                    </a>
+               
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    @RenderBody()
 </body>
 
 <footer class="site-footer" style="position:absolute; width:100%; bottom:-3%;z-index:3;">
@@ -248,45 +235,20 @@
         guardar.style.visibility = "hidden";
         cambiar.style.visibility = "visible";
     }
-    function noCambiar(){
-        
-        if(@Session["menu"]==4){
-            document.getElementById('c4').style.background="#424a5d";
-            document.getElementById('c4').style.color="#aeb2b7";
-        }
-        if(@Session["menu"]==5){
-            document.getElementById('c5').style.background="#424a5d";
-            document.getElementById('c5').style.color="#aeb2b7";
-        }
-        if(@Session["menu"]==6){
-            document.getElementById('c6').style.background="#424a5d";
-            document.getElementById('c6').style.color="#aeb2b7";
-        }
-        if(@Session["menu"]==7){
-            document.getElementById('c7').style.background="#424a5d";
-            document.getElementById('c7').style.color="#aeb2b7";
-        }
-        document.getElementById("c5").style.background = "#68dff0";
-        document.getElementById("c5").style.color = "white";
-    }
 </script>
 <script type="text/javascript">
     window.onload = function () {
-        if(@Session["menu"]==4){
-            document.getElementById("c4").style.background = "#68dff0";
-           document.getElementById("c4").style.color = "white";
+        if(@Session["menu"]==1){
+            document.getElementById("c1").style.background = "#68dff0";
+           document.getElementById("c1").style.color = "white";
         }
-        if(@Session["menu"]==5){
-            document.getElementById("c5").style.background = "#68dff0";
-            document.getElementById("c5").style.color = "white";
+        if(@Session["menu"]==2){
+            document.getElementById("c2").style.background = "#68dff0";
+            document.getElementById("c2").style.color = "white";
         }
-        if(@Session["menu"]==6){
-            document.getElementById("c6").style.background = "#68dff0";
-            document.getElementById("c6").style.color = "white";
-        }
-        if(@Session["menu"]==7){
-            document.getElementById("c7").style.background = "#68dff0";
-            document.getElementById("c7").style.color = "white";
+        if(@Session["menu"]==3){
+            document.getElementById("c3").style.background = "#68dff0";
+            document.getElementById("c3").style.color = "white";
         }
     }
 </script>

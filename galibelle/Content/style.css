@@ -1061,7 +1061,7 @@ PANELS CONFIGURATIONS
 	background: #d9534f;
 }
 .grey-panel2 .grey-header2 {
-	background: #d9534f;
+	background: #428bca;
 	padding: 3px;
 	margin-bottom: 15px;
 }
@@ -1152,7 +1152,7 @@ PANELS CONFIGURATIONS
 	background: #f4f4f4;
 	padding: 3px;
 	margin-bottom: 15px;
-	color: #c6c6c6;
+	color: #666666;
 }
 .white-panel .small {
 	font-size: 10px;

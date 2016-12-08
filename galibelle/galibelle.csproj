@@ -228,8 +228,12 @@
     <Content Include="img\friends\fr-09.jpg" />
     <Content Include="img\friends\fr-10.jpg" />
     <Content Include="img\friends\fr-11.jpg" />
+    <Content Include="img\icono.jpeg" />
+    <Content Include="img\icono.png" />
     <Content Include="img\instagram.jpg" />
     <Content Include="img\login-bg.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logo1.png" />
     <Content Include="img\lorde.jpg" />
     <Content Include="img\mask.png" />
     <Content Include="img\ny.jpg" />
@@ -340,6 +344,10 @@
     <Content Include="Views\Galibelle\VentasSucursal.cshtml" />
     <Content Include="Views\Galibelle\EstadisticasSucursal.cshtml" />
     <Content Include="Views\Galibelle\Estadisticas.cshtml" />
+    <Content Include="Views\Galibelle\Sucursal.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Galibelle\PedidosSuc.cshtml" />
+    <Content Include="Views\Galibelle\StockExterior.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,7 @@
-﻿@model IEnumerable<galibelle.Models.MyViewModel>
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 <style>
     * {
         box-sizing: border-box;
@@ -53,7 +56,7 @@
                         <div class="grey-header2 col-md-12">
 
                             <div class="col-md-12">
-                                <h3 style="font-weight:bold; color:white;">STOCK DE STRAPS</h3>
+                                <h3 style="font-weight:bold; color:white;">PEDIDOS DE STRAPS</h3>
                             </div>
                         </div>
                     </div>
@@ -62,42 +65,9 @@
             <div class="panel panel-white">
 
                 <div class="panel-body">
-                    <button type="button" onclick="location.href='@Url.Action("Index","Galibelle")'" class="btn btn-success m-b-sm pull-left">Regresar</button>
-                    <button type="button" class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nuevo strap</button>
-                    <!-- Modal -->
-                    <form id="add-row-form" action="javascript:void(0);">
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <input type="text" id="name-input" class="form-control" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="position-input" class="form-control" placeholder="Position" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="age-input" class="form-control" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                        <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+
+                    <button type="button" class="btn btn-success m-b-sm  pull-right">Realizar pedido</button>
+
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
@@ -107,44 +77,76 @@
                             <thead>
                                 <tr>
                                     <th>Código</th>
+                                    <th>Letra</th>
                                     <th>Modelo</th>
+                                    <th>Color</th>
                                     <th>Textura</th>
-                                    <th>Colores</th>
-                                    <th>Tamaño</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio Unitario</th>
-
+                                    <th>Combo</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Código</th>
+                                    <th>Letra</th>
                                     <th>Modelo</th>
+                                    <th>Color</th>
                                     <th>Textura</th>
-                                    <th>Colores</th>
-                                    <th>Tamaño</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio Unitario</th>
-
-
+                                    <th>Combo</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
 
 
 
                             <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Straps.codigo_strap)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Modelos.nombre_modelo)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Textura.nombre_Textura)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Colores.nombre_color)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.size_strap)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.cantidad)</a></td>
-                                        <td><a> @Html.DisplayFor(modelItem => item.Straps.precio_strap)</a></td>
-                                    </tr>
-                                }
+
+                                <tr>
+                                    <td><a>Cedric Kelly</a></td>
+                                    <td><a>Senior Javascript Developer</a></td>
+                                    <td><a>Edinburgh</a></td>
+                                    <td><a>22</a></td>
+                                    <td><a>2012/03/29</a></td>
+                                    <td><a>$433,060</a></td>
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><a>Zenaida Frank</a></td>
+                                    <td><a>Software Engineer</a></td>
+                                    <td><a>New York</a></td>
+                                    <td><a>63</a></td>
+                                    <td><a>2010/01/04</a></td>
+                                    <td><a>$125,250</a></td>
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a>Zorita Serrano</a></td>
+                                    <td><a>Software Engineer</a></td>
+                                    <td><a>San Francisco</a></td>
+                                    <td><a>56</a></td>
+                                    <td><a>2012/06/01</a></td>
+                                    <td><a>$115,000</a></td>
+                                    <td>
+                                        <div class="pull-right hidden-phone">
+                                            <button class="btn btn-success btn-xs fa fa-check"></button>
+                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        </div>
+                                    </td>
+                                </tr>
 
                             </tbody>
                         </table>
@@ -162,7 +164,7 @@
                             <div class="grey-header2 col-md-12">
 
                                 <div class="col-md-12">
-                                    <h3 style="font-weight:bold; color:white;">PEDIDOS DE STRAPS</h3>
+                                    <h3 style="font-weight:bold; color:white;">PEDIDOS DE SUELAS</h3>
                                 </div>
                             </div>
                         </div>
@@ -171,48 +173,16 @@
                 <div class="panel panel-white">
 
                     <div class="panel-body">
-                        <button type="button" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal">Recibir</button>
-                        <!-- Modal -->
-                        <form id="add-row-form" action="javascript:void(0);">
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <input type="text" id="name-input" class="form-control" placeholder="Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" id="position-input" class="form-control" placeholder="Position" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="number" id="age-input" class="form-control" placeholder="Age" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        <button type="button" class="btn btn-success m-b-sm  pull-right">Realizar pedido</button>
+
                         <div class="table-responsive">
                             <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                             <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
+
+
                             <table id="myTable2" class="display table" style="width: 100%; cellspacing: 0;">
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th>Código</th>
                                         <th>Letra</th>
                                         <th>Modelo</th>
@@ -224,7 +194,6 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th></th>
                                         <th>Código</th>
                                         <th>Letra</th>
                                         <th>Modelo</th>
@@ -238,30 +207,14 @@
 
 
                                 <tbody>
+
                                     <tr>
-                                        <td><span class="check"><input type="checkbox" class="checked"></span></td>
-                                        <td><a>Tiger Nixon</a></td>
-                                        <td><a>System Architect</a></td>
+                                        <td><a>Cedric Kelly</a></td>
+                                        <td><a>Senior Javascript Developer</a></td>
                                         <td><a>Edinburgh</a></td>
-                                        <td><a>61</a></td>
-                                        <td><a>2011/04/25</a></td>
-                                        <td><a>$320,800</a></td>
-                                        <td>
-                                            <div class="pull-right hidden-phone">
-                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="check"><input type="checkbox" class="checked"></span></td>
-                                        <td><a>Garrett Winters</a></td>
-                                        <td><a>Accountant</a></td>
-                                        <td><a>Tokyo</a></td>
-                                        <td><a>63</a></td>
-                                        <td><a>2011/07/25</a></td>
-                                        <td><a>$170,750</a></td>
+                                        <td><a>22</a></td>
+                                        <td><a>2012/03/29</a></td>
+                                        <td><a>$433,060</a></td>
                                         <td>
                                             <div class="pull-right hidden-phone">
                                                 <button class="btn btn-success btn-xs fa fa-check"></button>
@@ -272,7 +225,21 @@
                                     </tr>
 
                                     <tr>
-                                        <td><span class="check"><input type="checkbox" class="checked"></span></td>
+                                        <td><a>Zenaida Frank</a></td>
+                                        <td><a>Software Engineer</a></td>
+                                        <td><a>New York</a></td>
+                                        <td><a>63</a></td>
+                                        <td><a>2010/01/04</a></td>
+                                        <td><a>$125,250</a></td>
+                                        <td>
+                                            <div class="pull-right hidden-phone">
+                                                <button class="btn btn-success btn-xs fa fa-check"></button>
+                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
+                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td><a>Zorita Serrano</a></td>
                                         <td><a>Software Engineer</a></td>
                                         <td><a>San Francisco</a></td>
@@ -293,6 +260,13 @@
 
                         </div>
                     </div>
+
+
+
+
+
+
+
         </section>
     </section>
 
@@ -306,6 +280,7 @@
 $(document).ready(function(){
     $('#myTable1').dataTable();
     $('#myTable2').dataTable();
+
 });
 </script>
 
