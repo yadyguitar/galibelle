@@ -108,7 +108,8 @@ namespace galibelle.Controllers
                             join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                             join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
                             select new MyViewModel { Stock_straps = sto, Straps = str, Modelos = mod, Colores = col, Textura = text, Tipo_strap = tip };
-                return View(lista);
+                ViewBag.MyViewModel=lista;
+                return View();
             }
             else
                 return RedirectToAction("Sucursal");
