@@ -121,8 +121,15 @@ namespace galibelle.Controllers
             else if (Session["LogedUserID"].Equals("1"))
             {
                 Session["menu"] = 5;
-                var lista = from x in Utils.GalibelleContext.Colores select x;
-                return View(lista);
+
+                var lista = from sto in Utils.GalibelleContext.Stock_suelas
+                            join sue in Utils.GalibelleContext.Suelas on sto.IdSuelas equals sue.IdSuelas
+                            join mod in Utils.GalibelleContext.Modelos on sue.IdModelos equals mod.IdModelos
+                            select new MyViewModel { Stock_suelas = sto, Suelas = sue, Modelos = mod};
+                ViewBag.MyViewModel = lista;
+                return View();
+
+
             }
             else
                 return RedirectToAction("Sucursal");
@@ -158,9 +165,8 @@ namespace galibelle.Controllers
 
                 }
             }
-            return View(u);
+            return Content("<script language='javascript' type='text/javascript'>alert('Oh oh... Usuario o contraseña incorrecta. Intente de nuevo'); window.location='Login'</script>");
         }
-
 
         public ActionResult Sucursal()
         {
@@ -176,8 +182,6 @@ namespace galibelle.Controllers
                 return RedirectToAction("Index");
 
         }
-
-        
         public ActionResult PedidosSuc()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
@@ -192,8 +196,6 @@ namespace galibelle.Controllers
                 return RedirectToAction("Index");
 
         }
-
-       
         public ActionResult VentasSuc()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
@@ -207,7 +209,6 @@ namespace galibelle.Controllers
             else
                 return RedirectToAction("Index");
         }
-
         public ActionResult StockExterior()
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
@@ -301,8 +302,68 @@ namespace galibelle.Controllers
                     }
                 }
             }
-            return RedirectToAction("~/Error.cshtml");
+            return Content("<script language='javascript' type='text/javascript'>alert('Oh oh... Alguno de los datos importantes que ingresó no se encuentran en la base de datos. Intente de nuevo'); window.location='Straps'</script>");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult guardaSuela(MyViewModel v) {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //Primer caso
+                    var db = Utils.GalibelleContext;
+                    int idmod=(from mod in Utils.GalibelleContext.Modelos where mod.nombre_modelo == v.Modelos.nombre_modelo select mod.IdModelos ).First();
+                    
+                    db.Stock_suelas.Add(new Stock_suelas()
+                    {
+                        IdSuelas = (from sue in Utils.GalibelleContext.Suelas where sue.nombre_suela == v.Suelas.nombre_suela && sue.IdModelos == idmod select sue.IdSuelas).First(),
+                        talla_suela = v.Stock_suelas.talla_suela,
+                        IdSucursales = Convert.ToInt32(Session["IdSucursal"]),
+                        cantidad_suela = v.Stock_suelas.cantidad_suela,
+                        temporada = v.Stock_suelas.temporada,
+                        precio_suela_unitario = v.Stock_suelas.precio_suela_unitario
+                    });
+
+                    //db.SaveChangesAsync();
+                    db.SaveChanges();
+                    return RedirectToAction("Suelas");
+                }
+                catch
+                {
+                    //2do caso
+                    try
+                    {
+                        var db = Utils.GalibelleContext;
+                        
+                        db.Suelas.Add(new Suelas { IdModelos = (from mod in Utils.GalibelleContext.Modelos where mod.nombre_modelo == v.Modelos.nombre_modelo select mod.IdModelos).First(),
+                        nombre_suela = v.Suelas.nombre_suela});
+
+                        db.SaveChanges();
+                        int idmod = (from mod in Utils.GalibelleContext.Modelos where mod.nombre_modelo == v.Modelos.nombre_modelo select mod.IdModelos).First();
+                        db.Stock_suelas.Add(new Stock_suelas()
+                        {
+                            IdSuelas = (from sue in Utils.GalibelleContext.Suelas where sue.nombre_suela == v.Suelas.nombre_suela && sue.IdModelos == idmod select sue.IdSuelas).First(),
+                            talla_suela = v.Stock_suelas.talla_suela,
+                            IdSucursales = Convert.ToInt32(Session["IdSucursal"]),
+                            cantidad_suela = v.Stock_suelas.cantidad_suela,
+                            temporada = v.Stock_suelas.temporada,
+                            precio_suela_unitario = v.Stock_suelas.precio_suela_unitario
+                        });
+                        db.SaveChanges();
+                        return RedirectToAction("Suelas");
+                    }
+                    catch
+                    {
+                        System.Diagnostics.Debug.WriteLine("error");
+                    }
+                }
+            }
+            return Content("<script language='javascript' type='text/javascript'>alert('Oh oh... Alguno de los datos importantes que ingresó no se encuentran en la base de datos. Intente de nuevo'); window.location='Suelas'</script>");
+          //  return RedirectToAction("Error.cshtml");
+        }
+
 
 
     }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<galibelle.Models.Colores>
+﻿@model galibelle.Models.MyViewModel
 
 <style>
     * {
@@ -66,39 +66,51 @@
                     <button type="button" onclick="location.href='@Url.Action("Index","Galibelle")'" class="btn btn-success m-b-sm pull-left">Regresar</button>
                     <button type="button" class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nueva suela</button>
                     <!-- Modal -->
-                    <form id="add-row-form" action="javascript:void(0);">
+                    <div id="add-row-form" action="javascript:void(0);">
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nueva Suela</h4>
+                                @using (Html.BeginForm("guardaSuela", "Galibelle", FormMethod.Post))
+                            {
+
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Nuevo Suela</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Modelos.nombre_modelo, htmlAttributes: new { @class = "form-control", placeholder = "Modelo" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Suelas.nombre_suela, htmlAttributes: new { @class = "form-control", placeholder = "Nombre" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Stock_suelas.talla_suela, htmlAttributes: new { @class = "form-control", placeholder = "Talla", type="number",step="0.01"})
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Stock_suelas.cantidad_suela, htmlAttributes: new { @class = "form-control", placeholder = "Cantidad" ,type="number"})
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Stock_suelas.precio_suela_unitario, htmlAttributes: new { @class = "form-control", placeholder = "Precio Unitario", type = "number" , step="0.01"})
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(a => a.Stock_suelas.temporada, htmlAttributes: new { @class = "form-control", placeholder = "Temporada", type = "number" })
+                                            </div>
+                                                                                       
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
+                                        </div>
+
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <input type="text" id="name-input" class="form-control" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="position-input" class="form-control" placeholder="Position" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="age-input" class="form-control" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                        <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
-                    </form>
+                    </div>
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
@@ -107,24 +119,23 @@
                         <table id="myTable1" class="display table" style="width: 100%; cellspacing: 0;">
                             <thead>
                                 <tr>
-                                    <th>Código</th>
-                                    <!--<th>Letra</th>
                                     <th>Modelo</th>
-                                    <th>Color</th>
-                                    <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>-->
+                                    <th>Nombre</th>
+                                    <th>Talla</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Temporada</th>
+                                    
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Código</th>
-                                    <!--<th>Letra</th>
                                     <th>Modelo</th>
-                                    <th>Color</th>
-                                    <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>-->
+                                    <th>Nombre</th>
+                                    <th>Talla</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Temporada</th>
 
                                 </tr>
                             </tfoot>
@@ -132,11 +143,16 @@
 
 
                             <tbody>
-                                @foreach (var item in Model)
+                                @foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel)
                                 {
                                     <tr>
-                                        <td><a> @Html.DisplayFor(modelItem => item.nombre_color)</a></td>
-
+                                        <td><a> @Html.DisplayFor(modelItem => item.Modelos.nombre_modelo)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Suelas.nombre_suela)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.talla_suela)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.cantidad_suela)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.precio_suela_unitario)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.temporada)</a></td>
+                                        
                                     </tr>
                                 }
 
