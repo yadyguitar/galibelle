@@ -1,4 +1,7 @@
-﻿@model IEnumerable<galibelle.Models.MyViewModel>
+
+﻿@model galibelle.Models.MyViewModel
+
+
 <style>
     * {
         box-sizing: border-box;
@@ -35,6 +38,7 @@
                 background-color: #f1f1f1;
             }
 </style>
+
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -60,44 +64,65 @@
                 </div>
             </div>
             <div class="panel panel-white">
-
+                
                 <div class="panel-body">
-                    <button type="button" onclick="location.href='@Url.Action("Index","Galibelle")'" class="btn btn-success m-b-sm pull-left">Regresar</button>
-                    <button type="button" class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nuevo strap</button>
+
+                    <button type="button" onclick="location.href='@Url.Action("Index", "Galibelle")'" class="btn btn-success m-b-sm pull-left" >Regresar</button>
+                    <button type="button"   class="btn btn-success m-b-sm pull-right" data-toggle="modal" data-target="#myModal">Agregar nuevo strap</button>
                     <!-- Modal -->
-                    <form id="add-row-form" action="javascript:void(0);">
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
+
+                    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+            @using (Html.BeginForm("guardaStrap", "Galibelle", FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Nuevo Strap</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Straps.codigo_strap, htmlAttributes: new { @class = "form-control", placeholder = "Código" })
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <input type="text" id="name-input" class="form-control" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="position-input" class="form-control" placeholder="Position" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="age-input" class="form-control" placeholder="Age" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="date-input" class="form-control date-picker" placeholder="Start Date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="number" id="salary-input" class="form-control" placeholder="Salary" required>
-                                        </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Modelos.nombre_modelo, htmlAttributes: new { @class = "form-control", placeholder = "Modelo" })
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                        <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Textura.nombre_Textura, htmlAttributes: new { @class = "form-control", placeholder = "Textura" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Colores.nombre_color, htmlAttributes: new { @class = "form-control", placeholder = "Colores" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Stock_straps.size_strap, htmlAttributes: new { @class = "form-control", placeholder = "Tamaño" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Stock_straps.cantidad, htmlAttributes: new { @class = "form-control", placeholder = "Cantidad",type="number" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Straps.precio_strap, htmlAttributes: new { @class = "form-control", placeholder = "Precio Unitario", type = "number" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(a => a.Stock_straps.temporada, htmlAttributes: new { @class = "form-control", placeholder = "Temporada", type = "number" })
                                     </div>
                                 </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" id="add-row" class="btn btn-success">Agregar</button>
+                                </div>
+
                             </div>
+            }
                         </div>
-                    </form>
+                    </div>
+
+
+
                     <div class="table-responsive">
                         <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
                         <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
@@ -133,7 +158,7 @@
 
 
                             <tbody>
-                                @foreach (var item in Model)
+                                @foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel)
                                 {
                                     <tr>
                                         <td><a> @Html.DisplayFor(modelItem => item.Straps.codigo_strap)</a></td>
@@ -168,13 +193,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-white">
+                <div  class="panel panel-white">
 
                     <div class="panel-body">
-                        <button type="button" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal">Recibir</button>
+                        <button type="button" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal2">Recibir</button>
                         <!-- Modal -->
-                        <form id="add-row-form" action="javascript:void(0);">
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <form id="add-row-form" ">
+
+                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -307,5 +333,8 @@ $(document).ready(function(){
     $('#myTable1').dataTable();
     $('#myTable2').dataTable();
 });
+
+    
+
 </script>
 
