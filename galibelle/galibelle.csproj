@@ -187,7 +187,6 @@
     <Compile Include="Models\Modelos.cs" />
     <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Models\Pedidos.cs" />
-    <Compile Include="Models\sto.cs" />
     <Compile Include="Models\Stock_straps.cs" />
     <Compile Include="Models\Stock_suelas.cs" />
     <Compile Include="Models\Straps.cs" />
@@ -306,14 +305,10 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Galibelle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Colores\" />
-    <Folder Include="Views\Modelos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -326,16 +321,7 @@
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Project_Readme.html" />
-    <Content Include="Views\Tabla\Tabla.cshtml" />
-    <Content Include="Views\Blank\Blank.cshtml" />
-    <Content Include="Views\Chartjs\Chartjs.cshtml" />
-    <Content Include="Views\Form\Form.cshtml" />
-    <Content Include="Views\Screen\Screen.cshtml" />
     <Content Include="Views\Galibelle\Login.cshtml" />
-    <Content Include="Views\Morris\Morris.cshtml" />
-    <Content Include="Views\Panels\Panels.cshtml" />
-    <Content Include="Views\ResponsiveTable\ResponsiveTable.cshtml" />
-    <Content Include="Views\TodoList\TodoList.cshtml" />
     <Content Include="Views\Galibelle\ListaSucursales.cshtml" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Views\Galibelle\Straps.cshtml" />
@@ -346,9 +332,11 @@
     <Content Include="Views\Galibelle\EstadisticasSucursal.cshtml" />
     <Content Include="Views\Galibelle\Estadisticas.cshtml" />
     <Content Include="Views\Galibelle\Sucursal.cshtml" />
-    <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Galibelle\PedidosSuc.cshtml" />
     <Content Include="Views\Galibelle\StockExterior.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

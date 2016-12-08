@@ -25,6 +25,7 @@ namespace galibelle.Models
 
         public string size_strap { get; set; }
         public int cantidad { get; set; }
+        public float precio_strap_unitario { get; set; }
         public int temporada { get; set; }
         
 

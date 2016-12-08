@@ -21,6 +21,7 @@ namespace galibelle.Models
 
         [Display(Name = "Sucursales")]
         public int IdSucursales { get; set; }
+        public float precio_suela_unitario { get; set; }
         public int temporada { get; set; }
 
         [ForeignKey("IdSuelas")]

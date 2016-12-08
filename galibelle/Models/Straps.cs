@@ -17,8 +17,7 @@ namespace galibelle.Models
         [Display(Name = "Modelos")]
         public int IdModelos { get; set; }
 
-        public string letra_strap { get; set; }
-        public float precio_strap { get; set; }
+        public string imagen_strap { get; set; }
 
         [ForeignKey("IdModelos")]
         public virtual IEnumerable <Modelos> Modelos { get; set; }
