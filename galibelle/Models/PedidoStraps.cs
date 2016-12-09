@@ -7,14 +7,12 @@ using System.Web;
 
 namespace galibelle.Models
 {
-    [Table("Pedidos")]
-    public class Pedidos
+    [Table("PedidoStraps")]
+    public class PedidoStraps
     {
         [Key]
         public int IdPedidos { get; set; }
-        
-        [Display(Name ="Suelas")]
-        public int IdSuelas { get; set; }
+
 
         [Display(Name = "Straps")]
         public int IdStraps { get; set; }
@@ -22,12 +20,11 @@ namespace galibelle.Models
         [Display(Name = "Sucursales")]
         public int IdSucursales { get; set; }
 
-        [ForeignKey("IdSuelas")]
-        public virtual IEnumerable <Suelas> Suelas { get; set; }
+        
         [ForeignKey("IdStraps")]
         public virtual IEnumerable<Straps> Straps { get; set; }
         [ForeignKey("IdSucursales")]
-        public virtual IEnumerable<Sucursales > Sucursales { get; set; }
+        public virtual IEnumerable<Sucursales> Sucursales { get; set; }
 
     }
 }
