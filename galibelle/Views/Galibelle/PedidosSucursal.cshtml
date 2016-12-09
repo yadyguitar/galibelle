@@ -1,4 +1,9 @@
-﻿<style>
+﻿@model galibelle.Models.MyViewModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
     * {
         box-sizing: border-box;
     }
@@ -37,7 +42,7 @@
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet"
-      href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+      href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
 <script type="text/javascript"
         src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript"
@@ -52,7 +57,7 @@
                         <div class="grey-header2 col-md-12">
 
                             <div class="col-md-12">
-                                <h3 style="font-weight:bold; color:white;">PEDIDOS DE STRAPS</h3>
+                                <h3 style="font-weight:bold; color:white;">STRAPS</h3>
                             </div>
                         </div>
                     </div>
@@ -61,202 +66,264 @@
             <div class="panel panel-white">
 
                 <div class="panel-body">
-                    <button type="button" onclick="location.href='@Url.Action("ListaSucursales","Galibelle")'" class="btn btn-success m-b-sm">Regresar</button>
+                    <button type="button" class="btn btn-success m-b-sm  pull-right" data-toggle="modal" data-target="#myModal6">Realizar venta</button>
+                    <!-- Modal -->
+                    <!-- Modal  VER-->
+                    <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">Venta</h2>
+                                </div>
+                                <div class="col-md-12" style="padding:0%;">
+                                    <div class="panel panel-white" style="height:450px">
 
+                                        <div class="panel-body">
+                                            <form>
 
-                    <div class="table-responsive">
-                        <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
-                        <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
+                                                <div class="form-group">
+                                                    <label style="color:#3e3939;font-weight:bold;font-size:16px;">Código</label>
+                                                    <input id="inputDireccion" class="form-control" placeholder="Ingrese el código del strap a vender">
+                                                </div>
+                                                <button type="button" class="btn btn-success m-b-sm  pull-right">Buscar</button>
 
-
-                        <table id="myTable1" class="display table" style="width: 100%; cellspacing: 0;">
-                            <thead>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Letra</th>
-                                    <th>Modelo</th>
-                                    <th>Color</th>
-                                    <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Letra</th>
-                                    <th>Modelo</th>
-                                    <th>Color</th>
-                                    <th>Textura</th>
-                                    <th>Combo</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-
-
-
-                            <tbody>
-
-                                <tr>
-                                    <td><a>Cedric Kelly</a></td>
-                                    <td><a>Senior Javascript Developer</a></td>
-                                    <td><a>Edinburgh</a></td>
-                                    <td><a>22</a></td>
-                                    <td><a>2012/03/29</a></td>
-                                    <td><a>$433,060</a></td>
-                                    <td>
-                                        <div class="pull-right hidden-phone">
-                                            <button class="btn btn-success btn-xs fa fa-check"></button>
-                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
                                         </div>
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <td><a>Zenaida Frank</a></td>
-                                    <td><a>Software Engineer</a></td>
-                                    <td><a>New York</a></td>
-                                    <td><a>63</a></td>
-                                    <td><a>2010/01/04</a></td>
-                                    <td><a>$125,250</a></td>
-                                    <td>
-                                        <div class="pull-right hidden-phone">
-                                            <button class="btn btn-success btn-xs fa fa-check"></button>
-                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+
+                                        <div class="modal-footer">
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Código: </label><br />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo: </label><br />
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Textura: </label><br />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Color: </label><br />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Tamaño: </label><br />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Temporada: </label><br />
+                                            </div>
+                                            <label class="fa-pull-right" style="color:#3e3939;font-weight:bold;font-size:16px;">Total de venta: </label><br />
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a>Zorita Serrano</a></td>
-                                    <td><a>Software Engineer</a></td>
-                                    <td><a>San Francisco</a></td>
-                                    <td><a>56</a></td>
-                                    <td><a>2012/06/01</a></td>
-                                    <td><a>$115,000</a></td>
-                                    <td>
-                                        <div class="pull-right hidden-phone">
-                                            <button class="btn btn-success btn-xs fa fa-check"></button>
-                                            <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                            <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        <div class="form-group" style="margin-top:-2%">
+                                            <button style="margin-left:5%" id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
+                                            <button style="margin-right:5%" id="cambiarInput" type="button" class="pull-right btn btn-primary">Confirmar</button>
                                         </div>
-                                    </td>
-                                </tr>
 
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
+                                    </div>
 
 
 
-
-
-                <div class="row mt">
-                    <div class="col-lg-12">
-                        <div class="grey-panel2 donut-chart">
-                            <div class="grey-header2 col-md-12">
-
-                                <div class="col-md-12">
-                                    <h3 style="font-weight:bold; color:white;">PEDIDOS DE SUELAS</h3>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-white">
-
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
-                            <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
+            </div><!--END MODAL VER-->
 
 
-                            <table id="myTable2" class="display table" style="width: 100%; cellspacing: 0;">
-                                <thead>
-                                    <tr>
-                                        <th>Código</th>
-                                        <th>Letra</th>
-                                        <th>Modelo</th>
-                                        <th>Color</th>
-                                        <th>Textura</th>
-                                        <th>Combo</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Código</th>
-                                        <th>Letra</th>
-                                        <th>Modelo</th>
-                                        <th>Color</th>
-                                        <th>Textura</th>
-                                        <th>Combo</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
+            <div class="table-responsive">
+                <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
+
+
+                <table id="myTable1" class="display table" style="width: 100%; cellspacing: 0;">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Modelo</th>
+                            <th>Textura</th>
+                            <th>Colores</th>
+                            <th>Tamaño</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Temporada</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Código</th>
+                            <th>Modelo</th>
+                            <th>Textura</th>
+                            <th>Colores</th>
+                            <th>Tamaño</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Temporada</th>
+
+
+                        </tr>
+                    </tfoot>
 
 
 
-                                <tbody>
+                    <tbody>
+                        @foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel2)
+                        {
+                            <tr>
+                                <td><a> @Html.DisplayFor(modelItem => item.Straps.codigo_strap)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Modelos.nombre_modelo)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Textura.nombre_Textura)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Colores.nombre_color)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.size_strap)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.cantidad)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.precio_strap_unitario)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_straps.temporada)</a></td>
+                            </tr>
+                        }
 
-                                    <tr>
-                                        <td><a>Cedric Kelly</a></td>
-                                        <td><a>Senior Javascript Developer</a></td>
-                                        <td><a>Edinburgh</a></td>
-                                        <td><a>22</a></td>
-                                        <td><a>2012/03/29</a></td>
-                                        <td><a>$433,060</a></td>
-                                        <td>
-                                            <div class="pull-right hidden-phone">
-                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                                    <tr>
-                                        <td><a>Zenaida Frank</a></td>
-                                        <td><a>Software Engineer</a></td>
-                                        <td><a>New York</a></td>
-                                        <td><a>63</a></td>
-                                        <td><a>2010/01/04</a></td>
-                                        <td><a>$125,250</a></td>
-                                        <td>
-                                            <div class="pull-right hidden-phone">
-                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a>Zorita Serrano</a></td>
-                                        <td><a>Software Engineer</a></td>
-                                        <td><a>San Francisco</a></td>
-                                        <td><a>56</a></td>
-                                        <td><a>2012/06/01</a></td>
-                                        <td><a>$115,000</a></td>
-                                        <td>
-                                            <div class="pull-right hidden-phone">
-                                                <button class="btn btn-success btn-xs fa fa-check"></button>
-                                                <button class="btn btn-primary btn-xs fa fa-pencil"></button>
-                                                <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+            </div>
 
-                                </tbody>
-                            </table>
 
+
+
+
+
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <div class="grey-panel2 donut-chart">
+                        <div class="grey-header2 col-md-12">
+
+                            <div class="col-md-12">
+                                <h3 style="font-weight:bold; color:white;">SUELAS</h3>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-white">
+
+                <div class="panel-body">
+                    <button type="button" class="btn btn-success m-b-sm  pull-right" data-toggle="modal" data-target="#myModal7">Realizar venta</button>
+                    <!-- Modal -->
+                    <!-- Modal  VER-->
+                    <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">Venta</h2>
+                                </div>
+                                <div class="col-md-12" style="padding:0%;">
+                                    <div class="panel panel-white" style="height:480px">
+
+                                        <div class="panel-body">
+                                            <form>
+
+                                                <div class="form-group">
+                                                    <label style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo</label>
+                                                    <input id="inputDireccion" class="form-control" placeholder="Ingrese el código del strap a vender">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre</label>
+                                                    <input id="inputDireccion" class="form-control" placeholder="Ingrese el código del strap a vender">
+                                                </div>
+                                                <button type="button" class="btn btn-success m-b-sm  pull-right">Buscar</button>
+
+                                        </div>
+
+
+                                        <div class="modal-footer">
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo: </label><br />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre: </label><br />
+                                            </div>
+                                            <div class="form-group ">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Talla: </label><br />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Cantidad: </label><br />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Temporada: </label><br />
+                                            </div>
+
+                                            <label class="fa-pull-right" style="color:#3e3939;font-weight:bold;font-size:16px;">Total de venta: </label>
+                                        </div>
+                                        <div class="form-group" style="margin-top:-3%">
+                                            <button style="margin-left:5%" id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
+                                            <button style="margin-right:-15%" id="cambiarInput" type="button" class="pull-right btn btn-primary">Confirmar</button>
+                                        </div>
+
+                                    </div>
 
 
 
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--END MODAL VER-->
+
+            <div class="table-responsive">
+                <!--<div class="dataTables_length" id="example3_length"><label>Show <select name="example3_length" aria-controls="example3" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                <div id="example3_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example3"></label></div>-->
+
+
+                <table id="myTable2" class="display table" style="width: 100%; cellspacing: 0;">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Nombre</th>
+                            <th>Talla</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Temporada</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Nombre</th>
+                            <th>Talla</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Temporada</th>
+
+                        </tr>
+                    </tfoot>
+
+
+
+                    <tbody>
+                        @foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel)
+                        {
+                            <tr>
+                                <td><a> @Html.DisplayFor(modelItem => item.Modelos.nombre_modelo)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Suelas.nombre_suela)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.talla_suela)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.cantidad_suela)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.precio_suela_unitario)</a></td>
+                                <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.temporada)</a></td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+            </div>
 
 
 

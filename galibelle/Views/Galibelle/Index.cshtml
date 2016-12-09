@@ -1,4 +1,7 @@
-﻿<section id="container">
+﻿<script>
+    var hola=0;
+</script>
+<section id="container">
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
@@ -141,3 +144,9 @@
 <script src="../Scripts/jquery.js"></script>
 <script src="../Scripts/jquery-1.8.3.min.js"></script>
 <script src="../Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#equipos').click(function (e) {
+        var id = e.target.id;
+        alert(id);
+    });
+</script>
