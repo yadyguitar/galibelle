@@ -81,16 +81,21 @@
 
                                         <div class="panel-body">
                                             <form>
+                                           @using (Html.BeginForm("VentaStrap", "Galibelle", FormMethod.Post))
+                                           {
 
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true)
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Código</label>
-                                                    <input id="inputDireccion" class="form-control" placeholder="Ingrese el código del strap a vender">
+                                                    @Html.TextBoxFor(a => a.Straps.codigo_strap, htmlAttributes: new { @class = "form-control", placeholder = "Ingrese el código del strap a vender" })
                                                 </div>
+                                            }
                                                 <button type="button" class="btn btn-success m-b-sm  pull-right" >Buscar</button>
 
                                                 </div>
-                                                
-                                                
+                                           
+
                                                 <div class="modal-footer">
                                                     <div class="form-group">
                                                         <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Código: </label><br/>
