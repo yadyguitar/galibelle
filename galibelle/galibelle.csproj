@@ -333,10 +333,11 @@
     <Content Include="Views\Galibelle\Estadisticas.cshtml" />
     <Content Include="Views\Galibelle\Sucursal.cshtml" />
     <Content Include="Views\Galibelle\PedidosSuc.cshtml" />
-    <Content Include="Views\Galibelle\StockExterior.cshtml" />
+    <Content Include="Views\Galibelle\StockExteriorSuelas.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Galibelle\StockExteriorStraps.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

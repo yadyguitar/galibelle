@@ -62,11 +62,14 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a id="c2" href='@Url.Action("StockExterior","Galibelle")'>
-                        <i class="fa fa-list-ul"></i>
+                    <a id="c2" onclick="noCambiar()">
+                        <i class="fa fa-list-alt"></i>
                         <span>Stock Exterior</span>
                     </a>
-                  
+                    <ul class="sub">
+                        <li><a onclick="noCambiar()" href='@Url.Action("StockExteriorStraps","Galibelle")'>Straps</a></li> <!--Temporal, falta hacer el mío propio para el almacen-->
+                        <li><a onclick="noCambiar()" href='@Url.Action("StockExteriorSuelas","Galibelle")'>Suelas</a></li>
+                    </ul>
                 </li>
 
               
@@ -194,13 +197,13 @@
 <script type="text/javascript">
 
     function mostrar() {
-        var nombre = document.getElementById('nombre');
+        var nombre1 = document.getElementById('nombre1');
         if (contador == 0) {
-            nombre.style.visibility = "visible";
+            nombre1.style.visibility = "visible";
             contador = 1;
         }
         else {
-            nombre.style.visibility = "hidden";
+            nombre1.style.visibility = "hidden";
             contador = 0;
         }
     }
@@ -235,6 +238,24 @@
         guardar.style.visibility = "hidden";
         cambiar.style.visibility = "visible";
     }
+    function noCambiar(){
+
+        if(@Session["menu"]==1){
+            document.getElementById('c1').style.background="#424a5d";
+            document.getElementById('c1').style.color="#aeb2b7";
+        }
+        if(@Session["menu"]==2){
+            document.getElementById('c2').style.background="#424a5d";
+            document.getElementById('c2').style.color="#aeb2b7";
+        }
+        if(@Session["menu"]==3){
+            document.getElementById('c3').style.background="#424a5d";
+            document.getElementById('c3').style.color="#aeb2b7";
+        }
+        
+        document.getElementById("c2").style.background = "#68dff0";
+        document.getElementById("c2").style.color = "white";
+    }
 </script>
 <script type="text/javascript">
     window.onload = function () {
@@ -247,8 +268,9 @@
             document.getElementById("c2").style.color = "white";
         }
         if(@Session["menu"]==3){
-            document.getElementById("c3").style.background = "#68dff0";
-            document.getElementById("c3").style.color = "white";
+            document.getElementById("c2").style.background = "#68dff0";
+            document.getElementById("c2").style.color = "white";
         }
+        document.getElementsByTagName
     }
 </script>
