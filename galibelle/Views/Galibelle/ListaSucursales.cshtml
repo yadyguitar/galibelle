@@ -1,4 +1,6 @@
-﻿<section id="container">
+﻿@model galibelle.Models.MyViewModel
+
+<section id="container">
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
@@ -14,6 +16,10 @@
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
+                            @using (Html.BeginForm("guardaSucursal", "Galibelle", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -23,56 +29,60 @@
                                     <div class="panel panel-white">
 
                                         <div class="panel-body">
-                                            <form>
+                                            <div>
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre de la sucursal</label>
-                                                    <input class="form-control" id="InputNombreSucursal" placeholder="Sucursal #">
+                                                    @Html.TextBoxFor(a => a.Sucursales.nombre_sucursal, htmlAttributes: new { @class = "form-control", placeholder = "Sucursal #" })
+                                                    
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Dirección de la sucursal</label>
-                                                    <input class="form-control" id="InputDireccionSucursal" placeholder="Calle # Colonia Mpio. Estado">
+                                                    @Html.TextBoxFor(a => a.Sucursales.direccion_sucursal, htmlAttributes: new { @class = "form-control", placeholder = "Calle # Colonia Mpio. Estado" })
+                                                    
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Teléfono</label>
-                                                    <input class="form-control" id="InputTelefonoSucursal" placeholder="(123)4567890">
+                                                    @Html.TextBoxFor(a => a.Sucursales.telefono_sucursal, htmlAttributes: new { @class = "form-control", placeholder = "(xxx)xxxxxxx" })
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Usuario</label>
-                                                    <input class="form-control" id="InputUsuarioSucursal" placeholder="Usuario #">
+                                                    @Html.TextBoxFor(a => a.Usuarios.usuario, htmlAttributes: new { @class = "form-control", placeholder = "Usuario x" })
                                                 </div>
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Contraseña</label>
-                                                    <input type="password" class="form-control" id="InputPassword" placeholder="********">
+                                                    @Html.TextBoxFor(a => a.Usuarios.password, htmlAttributes: new { @class = "form-control", placeholder = "********" })
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Cancelar</button>
+                                                    <button type="button" class="btn btn-primary">Cancelar</button>
                                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            }
                         </div>
                     </div><!--END MODAL-->
                 </div>
             </div>
-            <div class="row mt">
+@foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel)
+{
+            <div id='@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales)' onclick="getId(@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales))" class="row mt">
                 <div class="col-lg-12">
-
-
                     <div class="showback" style="height:10%;color:darkgrey">
                         <div class="grey-header col-md-12">
 
                             <div class="col-md-10">
-                                <h3 style="font-weight:bold;">SUCURSAL</h3>
+                                <h3 style="font-weight:bold;">@Html.DisplayFor(modelItem => item.Sucursales.nombre_sucursal)</h3>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="btn-group btn-group-justified">
                                     <div class="btn-group col-md-4" style="padding:0%;">
-                                        <button style="font-size:16px;" type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#myModal1"> <i class="fa fa-eye"></i></button>
+                                        <button style="font-size:16px;" type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales)"> <i class="fa fa-eye"></i></button>
                                     </div>
                                     <div class="btn-group col-md-4" style="padding:0%;">
                                         <button style="font-size:16px;" type="button" class="btn btn-round btn-info" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button>
@@ -86,12 +96,12 @@
                         </div>
 
                         <!-- Modal  VER-->
-                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id='@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales)' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">Sucursal #</h2>
+                                        <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">@Html.DisplayFor(modelItem => item.Sucursales.nombre_sucursal)</h2>
                                     </div>
                                     <div class="col-md-12" style="padding:0%;">
                                         <div class="panel panel-white">
@@ -100,23 +110,23 @@
                                                 <form>
                                                     <div class="form-group">
                                                         <label style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre de la sucursal: </label>
-                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">Sucursal 123</label>
+                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">@Html.DisplayFor(modelItem => item.Sucursales.nombre_sucursal)</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label style="color:#3e3939;font-weight:bold;font-size:16px;">Dirección de la sucursal: </label>
-                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">Mar de Japón #17 Fracc. Costa Verde</label>
+                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">@Html.DisplayFor(modelItem => item.Sucursales.direccion_sucursal)</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label style="color:#3e3939;font-weight:bold;font-size:16px;">Teléfono: </label>
-                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">(225)1006309</label>
+                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">@Html.DisplayFor(modelItem => item.Sucursales.telefono_sucursal)</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label style="color:#3e3939;font-weight:bold;font-size:16px;">Usuario: </label>
-                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">Suc1</label>
+                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">@Html.DisplayFor(modelItem => item.Usuarios.usuario)</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label style="color:#3e3939;font-weight:bold;font-size:16px;">Contraseña: </label>
-                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">123456789</label>
+                                                        <label style="color:#3e3939;font-weight:bold;font-size:16px;">@Html.DisplayFor(modelItem => item.Usuarios.password)</label>
                                                     </div>
 
                                                 </form>
@@ -173,7 +183,7 @@
                             </div>
                         </div><!--END MODAL-->
                         <div class="row" style="margin-top:8%;">
-                           <a href="@Url.Action("StockSucursal", "Galibelle")">
+                           <a href="@Url.Action("StockSucursal", "Galibelle",new { i= @Html.DisplayFor(modelItem => item.Sucursales.IdSucursales) })">
                            <div class="col-md-3 col-sm-3 box0">
                           
                   			<div class="box1">
@@ -214,6 +224,7 @@
                 </div>
 
             </div><!--/row -->
+}
         </section>
     </section>
 
@@ -227,3 +238,11 @@
 <script src="../Scripts/jquery.js"></script>
 <script src="../Scripts/jquery-1.8.3.min.js"></script>
 <script src="../Scripts/bootstrap.min.js"></script>
+<script>
+    function getId(i) {
+        alert(i);
+        
+                
+    }
+    
+</script>

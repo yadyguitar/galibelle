@@ -42,6 +42,11 @@ namespace galibelle.Controllers
             else if (Session["LogedUserID"].Equals("1"))
             {
                 Session["menu"] = 6;
+                var lista = from usu in Utils.GalibelleContext.Usuarios
+                            join suc in Utils.GalibelleContext.Sucursales on usu.IdSucursales equals suc.IdSucursales
+                            where usu.IdUsuario != 1
+                            select new MyViewModel { Usuarios = usu, Sucursales = suc };
+                ViewBag.MyViewModel = lista;
                 return View();
             }
             else
@@ -82,12 +87,13 @@ namespace galibelle.Controllers
                 return RedirectToAction("Sucursal");
         }
 
-        public ActionResult StockSucursal()
+        public ActionResult StockSucursal(int i)
         {
 
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             else if (Session["LogedUserID"].Equals("1"))
             {
+                System.Diagnostics.Debug.WriteLine(i);
                 Session["menu"] = 6;
                 return View();
             }
@@ -140,6 +146,9 @@ namespace galibelle.Controllers
             Session.RemoveAll();
             return View();
         }
+
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -364,6 +373,46 @@ namespace galibelle.Controllers
           //  return RedirectToAction("Error.cshtml");
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult guardaSucursal(MyViewModel v) {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var db = Utils.GalibelleContext;
+
+                    db.Sucursales.Add(new Sucursales(){
+                        nombre_sucursal = v.Sucursales.nombre_sucursal,
+                        direccion_sucursal= v.Sucursales.direccion_sucursal,
+                        telefono_sucursal = v.Sucursales.telefono_sucursal});
+                    db.SaveChanges();
+
+                    int idSuc = (from suc in Utils.GalibelleContext.Sucursales
+                                 where suc.nombre_sucursal == v.Sucursales.nombre_sucursal && suc.direccion_sucursal == v.Sucursales.direccion_sucursal 
+                                 select suc.IdSucursales).First();
+                    System.Diagnostics.Debug.WriteLine(idSuc);
+                    
+
+                    db.Usuarios.Add(new Usuarios()
+                    {
+                        usuario = v.Usuarios.usuario,
+                        password =v.Usuarios.password,
+                        IdSucursales= idSuc
+
+                    });
+                    db.SaveChanges();
+                    return RedirectToAction("ListaSucursales");
+                }
+                catch
+                {
+                    System.Diagnostics.Debug.WriteLine("error");
+                }
+            }
+            return Content("<script language='javascript' type='text/javascript'>alert('Oh oh... No se pudo registrar la sucursal. Intente de nuevo'); window.location='ListaSucursales'</script>");
+            //  return RedirectToAction("Error.cshtml");
+        }
 
 
     }
