@@ -53,7 +53,7 @@ namespace galibelle.Controllers
                 return RedirectToAction("Sucursal");
         }
        
-        public ActionResult PedidosSucursal()
+        public ActionResult PedidosSucursal(int i)
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             else if (Session["LogedUserID"].Equals("1"))
@@ -62,6 +62,7 @@ namespace galibelle.Controllers
                 var lista = from sto in Utils.GalibelleContext.Stock_suelas
                             join sue in Utils.GalibelleContext.Suelas on sto.IdSuelas equals sue.IdSuelas
                             join mod in Utils.GalibelleContext.Modelos on sue.IdModelos equals mod.IdModelos
+                            where sto.IdSucursales == i
                             select new MyViewModel { Stock_suelas = sto, Suelas = sue, Modelos = mod };
                 ViewBag.MyViewModel = lista;
 
@@ -71,6 +72,7 @@ namespace galibelle.Controllers
                              join tip in Utils.GalibelleContext.Tipo_strap on sto.IdTipo_strap equals tip.IdTipo_strap
                              join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                              join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
+                             where sto.IdSucursales == i
                              select new MyViewModel { Stock_straps = sto, Straps = str, Modelos = mod, Colores = col, Textura = text, Tipo_strap = tip };
 
 
@@ -80,7 +82,7 @@ namespace galibelle.Controllers
             else
                 return RedirectToAction("Sucursal");
         }
-        public ActionResult VentasSucursal()
+        public ActionResult VentasSucursal(int i)
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             else if (Session["LogedUserID"].Equals("1"))
@@ -89,6 +91,7 @@ namespace galibelle.Controllers
                 var lista = from sto in Utils.GalibelleContext.Stock_suelas
                             join sue in Utils.GalibelleContext.Suelas on sto.IdSuelas equals sue.IdSuelas
                             join mod in Utils.GalibelleContext.Modelos on sue.IdModelos equals mod.IdModelos
+                            where sto.IdSucursales == i
                             select new MyViewModel { Stock_suelas = sto, Suelas = sue, Modelos = mod };
                 ViewBag.MyViewModel = lista;
 
@@ -98,6 +101,7 @@ namespace galibelle.Controllers
                              join tip in Utils.GalibelleContext.Tipo_strap on sto.IdTipo_strap equals tip.IdTipo_strap
                              join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                              join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
+                             where sto.IdSucursales == i
                              select new MyViewModel { Stock_straps = sto, Straps = str, Modelos = mod, Colores = col, Textura = text, Tipo_strap = tip };
 
 
@@ -107,7 +111,7 @@ namespace galibelle.Controllers
             else
                 return RedirectToAction("Sucursal");
         }
-        public ActionResult EstadisticasSucursal()
+        public ActionResult EstadisticasSucursal(int i)
         {
             if (Session["LogedUserID"] == null) { return RedirectToAction("Login"); }
             else if (Session["LogedUserID"].Equals("1"))
@@ -130,6 +134,7 @@ namespace galibelle.Controllers
                 var lista = from sto in Utils.GalibelleContext.Stock_suelas
                             join sue in Utils.GalibelleContext.Suelas on sto.IdSuelas equals sue.IdSuelas
                             join mod in Utils.GalibelleContext.Modelos on sue.IdModelos equals mod.IdModelos
+                            where sto.IdSucursales==i
                             select new MyViewModel { Stock_suelas = sto, Suelas = sue, Modelos = mod };
                 ViewBag.MyViewModel = lista;
 
@@ -139,6 +144,7 @@ namespace galibelle.Controllers
                              join tip in Utils.GalibelleContext.Tipo_strap on sto.IdTipo_strap equals tip.IdTipo_strap
                              join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                              join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
+                             where sto.IdSucursales == i
                              select new MyViewModel { Stock_straps = sto, Straps = str, Modelos = mod, Colores = col, Textura = text, Tipo_strap = tip };
 
 
@@ -161,6 +167,7 @@ namespace galibelle.Controllers
                             join tip in Utils.GalibelleContext.Tipo_strap on sto.IdTipo_strap equals tip.IdTipo_strap
                             join col in Utils.GalibelleContext.Colores on tip.IdColores equals col.IdColores
                             join text in Utils.GalibelleContext.Textura on tip.IdTextura equals text.IdTextura
+                            where sto.IdSucursales==1
                             select new MyViewModel { Stock_straps = sto, Straps = str, Modelos = mod, Colores = col, Textura = text, Tipo_strap = tip };
                 ViewBag.MyViewModel=lista;
                 return View();
@@ -179,6 +186,7 @@ namespace galibelle.Controllers
                 var lista = from sto in Utils.GalibelleContext.Stock_suelas
                             join sue in Utils.GalibelleContext.Suelas on sto.IdSuelas equals sue.IdSuelas
                             join mod in Utils.GalibelleContext.Modelos on sue.IdModelos equals mod.IdModelos
+                            where sto.IdSucursales==1
                             select new MyViewModel { Stock_suelas = sto, Suelas = sue, Modelos = mod};
                 ViewBag.MyViewModel = lista;
                 return View();

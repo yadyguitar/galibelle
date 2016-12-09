@@ -21,7 +21,7 @@ namespace galibelle.Models
         public string imagen_suela { get; set; }
         [ForeignKey("IdModelos")]
         public virtual IEnumerable<Modelos> Modelos { get; set; }
-        public virtual ICollection<Pedidos> Pedidos { get; set; }
+        public virtual ICollection<PedidoSuelas> PedidoSuelas { get; set; }
         public virtual ICollection<Stock_suelas> Stock_suelas { get; set; }
     }
 }

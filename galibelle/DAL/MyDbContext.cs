@@ -22,7 +22,8 @@ namespace galibelle.DAL
 
             public DbSet<Colores> Colores { get; set; }
             public DbSet<Modelos> Modelos{ get; set; }
-            public DbSet<Pedidos> Pedidos{ get; set; }
+            public DbSet<PedidoSuelas> PedidoSuelas{ get; set; }
+            public DbSet<PedidoStraps> PedidoStraps { get; set; }
             public DbSet<Stock_straps> Stock_straps{ get; set; }
             public DbSet<Stock_suelas> Stock_suelas{ get; set; }
             public DbSet<Straps>Straps{ get; set; }
@@ -31,7 +32,8 @@ namespace galibelle.DAL
             public DbSet<Textura> Textura{ get; set; }
             public DbSet<Tipo_strap> Tipo_strap{ get; set; }
             public DbSet<Usuarios> Usuarios{ get; set; }
-            public DbSet<Vendido> Vendido{ get; set; }
+            public DbSet<VendidoStraps> VendidoStraps{ get; set; }
+            public DbSet<VendidoStraps> VendidoSuelas { get; set; }
             public DbSet<Ventas> Ventas{ get; set; }
 
 

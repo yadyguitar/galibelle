@@ -7,27 +7,25 @@ using System.Web;
 
 namespace galibelle.Models
 {
-    [Table("Vendido")]
-    public class Vendido
+    [Table("VendidoStraps")]
+    public class VendidoStraps
     {
         [Key]
         public int IdVendido { get; set; }
 
-        [Display(Name ="Stock_straps")]
+        [Display(Name = "Stock_straps")]
         public int IdStock_straps { get; set; }
 
-        [Display(Name = "Stock_suelas")]
-        public int IdStock_suelas { get; set; }
-
+        
         [Display(Name = "Ventas")]
         public int IdVentas { get; set; }
 
         public virtual IEnumerable<Stock_straps> Stock_straps { get; set; }
-        public virtual IEnumerable<Stock_suelas> Stock_suelas { get; set; }
+        
 
         [ForeignKey("IdVentas")]
         public virtual IEnumerable<Ventas> Ventas { get; set; }
-        
+
 
     }
 }

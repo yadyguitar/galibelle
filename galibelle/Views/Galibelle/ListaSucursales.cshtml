@@ -70,7 +70,7 @@
             </div>
 @foreach (var item in (IEnumerable<galibelle.Models.MyViewModel>)ViewBag.MyViewModel)
 {
-            <div id='@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales)' onclick="getId(@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales))" class="row mt">
+            <div id='@Html.DisplayFor(modelItem => item.Sucursales.IdSucursales)'  class="row mt">
                 <div class="col-lg-12">
                     <div class="showback" style="height:10%;color:darkgrey">
                         <div class="grey-header col-md-12">
@@ -192,7 +192,7 @@
                   			</div>
 					  			<p>Productos en el stock de la sucursal.</p>
                   		</div></a>
-                            <a href="@Url.Action("VentasSucursal", "Galibelle")">
+                            <a href="@Url.Action("VentasSucursal", "Galibelle" ,new { i= @Html.DisplayFor(modelItem => item.Sucursales.IdSucursales) })">
                                 <div class="col-md-3 col-sm-3 box0">
                                     <div class="box1">
                                         <span class="fa fa-dollar"></span>
@@ -200,7 +200,7 @@
                                     </div>
                                     <p>Ventas realizadas por la sucursal</p>
                                 </div><!-- col-lg-4 --></a>
-                            <a href="@Url.Action("EstadisticasSucursal", "Galibelle")">
+                            <a href="@Url.Action("EstadisticasSucursal", "Galibelle",new { i= @Html.DisplayFor(modelItem => item.Sucursales.IdSucursales) })">
                                 <div class="col-md-3 col-sm-3 box0">
                                     <div class="box1">
                                         <span class="fa fa-pie-chart"></span>
@@ -208,7 +208,7 @@
                                     </div>
                                     <p>Estadísticas</p>
                                 </div><!-- col-lg-4 --></a>
-                            <a href="@Url.Action("PedidosSucursal", "Galibelle")">
+                            <a href="@Url.Action("PedidosSucursal", "Galibelle",new { i= @Html.DisplayFor(modelItem => item.Sucursales.IdSucursales) })">
                                 <div class="col-md-3 col-sm-3 box0">
                                     <div class="box1">
                                         <span class="fa fa-send"></span>
@@ -238,11 +238,3 @@
 <script src="../Scripts/jquery.js"></script>
 <script src="../Scripts/jquery-1.8.3.min.js"></script>
 <script src="../Scripts/bootstrap.min.js"></script>
-<script>
-    function getId(i) {
-        alert(i);
-        
-                
-    }
-    
-</script>
