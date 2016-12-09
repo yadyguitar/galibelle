@@ -83,6 +83,7 @@
                                     <th>Cantidad</th>
                                     <th>Precio Unitario</th>
                                     <th>Temporada</th>
+                                    <th>Sucursal</th>
 
                                 </tr>
                             </thead>
@@ -94,6 +95,7 @@
                                     <th>Cantidad</th>
                                     <th>Precio Unitario</th>
                                     <th>Temporada</th>
+                                    <th>Sucursal</th>
 
                                 </tr>
                             </tfoot>
@@ -110,6 +112,7 @@
                                         <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.cantidad_suela)</a></td>
                                         <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.precio_suela_unitario)</a></td>
                                         <td><a> @Html.DisplayFor(modelItem => item.Stock_suelas.temporada)</a></td>
+                                        <td><a> @Html.DisplayFor(modelItem => item.Sucursales.nombre_sucursal)</a></td>
 
                                     </tr>
                                 }
