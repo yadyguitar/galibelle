@@ -186,7 +186,8 @@
     <Compile Include="Models\Colores.cs" />
     <Compile Include="Models\Modelos.cs" />
     <Compile Include="Models\MyViewModel.cs" />
-    <Compile Include="Models\Pedidos.cs" />
+    <Compile Include="Models\PedidoStraps.cs" />
+    <Compile Include="Models\PedidoSuelas.cs" />
     <Compile Include="Models\Stock_straps.cs" />
     <Compile Include="Models\Stock_suelas.cs" />
     <Compile Include="Models\Straps.cs" />
@@ -195,7 +196,8 @@
     <Compile Include="Models\Textura.cs" />
     <Compile Include="Models\Tipo_strap.cs" />
     <Compile Include="Models\Usuarios.cs" />
-    <Compile Include="Models\Vendido.cs" />
+    <Compile Include="Models\VendidoStraps.cs" />
+    <Compile Include="Models\VendidoSuelas.cs" />
     <Compile Include="Models\Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
