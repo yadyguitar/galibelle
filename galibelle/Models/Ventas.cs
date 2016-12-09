@@ -19,7 +19,8 @@ namespace galibelle.Models
 
         [ForeignKey("IdSucursales")]
         public virtual IEnumerable<Sucursales> Sucursales { get; set; }
-        public virtual ICollection<Vendido> Vendido { get; set; }
+        public virtual ICollection<VendidoStraps> VendidoStraps { get; set; }
+        public virtual ICollection<VendidoSuelas> VendidoSuelas { get; set; }
 
     }
 }

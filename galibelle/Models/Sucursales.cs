@@ -20,7 +20,8 @@ namespace galibelle.Models
         public virtual ICollection<Stock_straps> Stock_straps { get; set; }
         public virtual ICollection<Stock_suelas> Stock_suelas { get; set; }
         public virtual ICollection<Ventas> Ventas { get; set; }
-        public virtual ICollection<Pedidos> Pedidos { get; set; }
+        public virtual ICollection<PedidoStraps> PedidoStraps { get; set; }
+        public virtual ICollection<PedidoSuelas> PedidoSuelas { get; set; }
         public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }
