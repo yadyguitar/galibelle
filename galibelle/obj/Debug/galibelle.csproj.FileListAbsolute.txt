@@ -61,5 +61,5 @@ C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\Antl
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\bin\Newtonsoft.Json.xml
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.dll
 C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.pdb
-C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache
 C:\Users\Yadira\Documents\workspace\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache
+C:\Users\Lalo\Documents\Visual Studio 2015\Projects\galibelle\galibelle\obj\Debug\galibelle.csprojResolveAssemblyReference.cache

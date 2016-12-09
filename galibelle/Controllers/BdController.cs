@@ -23,7 +23,7 @@ namespace galibelle.Controllers
             */
             //var lista = from x in Utils.GalibelleContext.Colores select x;
             var db = Utils.GalibelleContext;
-            db.Sucursales.Add(new Sucursales() { nombre_sucursal = "Almacen",direccion_sucursal="Mar de Japon #17",telefono_sucursal="2291404225" });
+            db.Sucursales.Add(new Sucursales() { nombre_sucursal = "yadira",direccion_sucursal="Mar de Japon #17",telefono_sucursal="2291404225" });
             db.SaveChanges();
             db.Usuarios.Add(new Usuarios() { IdSucursales=1,usuario="yadira", password="123"});
             db.Colores.Add(new Colores() { nombre_color = "black" });
@@ -82,7 +82,6 @@ namespace galibelle.Controllers
             db.Textura.Add(new Textura() { nombre_Textura = "snake" });
             db.Textura.Add(new Textura() { nombre_Textura = "soft" });
             db.Textura.Add(new Textura() { nombre_Textura = "suede" });
-            db.Textura.Add(new Textura() { nombre_Textura = "twill" });
             db.Textura.Add(new Textura() { nombre_Textura = "twill" });
             db.Textura.Add(new Textura() { nombre_Textura = "varnish" });
             db.Textura.Add(new Textura() { nombre_Textura = "braid" });
