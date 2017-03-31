@@ -77,10 +77,10 @@
                                     <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">Venta</h2>
                                 </div>
                                 <div class="col-md-12" style="padding:0%;">
-                                    <div class="panel panel-white" style="height:450px">
+                                    <div class="panel panel-white">
 
                                         <div class="panel-body">
-                                            <form>
+                                            <div>
                                            @using (Html.BeginForm("VentaStrap", "Galibelle", FormMethod.Post))
                                            {
 
@@ -91,43 +91,22 @@
                                                     @Html.TextBoxFor(a => a.Straps.codigo_strap, htmlAttributes: new { @class = "form-control", placeholder = "Ingrese el código del strap a vender" })
                                                 </div>
                                             }
-                                                <button type="button" class="btn btn-success m-b-sm  pull-right" >Buscar</button>
 
                                                 </div>
                                            
 
                                                 <div class="modal-footer">
+                                                   
                                                     <div class="form-group">
-                                                        <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Código: </label><br/>
-                                                    </div>
-                                  
-                                                    <div class="form-group">
-                                                        <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo: </label><br />
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Textura: </label><br/>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Color: </label><br />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label  class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Tamaño: </label><br />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Temporada: </label><br />
-                                                    </div>
-                                                        <label class="fa-pull-right" style="color:#3e3939;font-weight:bold;font-size:16px;">Total de venta: </label><br />
-                                                    </div>
-                                                    <div class="form-group" style="margin-top:-2%">
-                                                        <button style="margin-left:5%" id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
-                                                        <button style="margin-right:5%"id="cambiarInput" type="button" class="pull-right btn btn-primary">Confirmar</button>
+                                                        <button type="button" class="btn btn-success m-b-sm  pull-right">Aceptar</button>
+                                                        <button  id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
                                                     </div>
                                        
                                                 </div>
                                                     
                                                
 
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -224,10 +203,10 @@
                                     <h2 style="font-weight:bold;" class="modal-title" id="myModalLabel">Venta</h2>
                                 </div>
                                 <div class="col-md-12" style="padding:0%;">
-                                    <div class="panel panel-white" style="height:480px">
+                                    <div class="panel panel-white">
 
                                         <div class="panel-body">
-                                            <form>
+                                            <div>
 
                                                 <div class="form-group">
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo</label>
@@ -237,41 +216,22 @@
                                                     <label style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre</label>
                                                     <input id="inputDireccion" class="form-control" placeholder="Ingrese el código del strap a vender">
                                                 </div>
-                                                <button type="button" class="btn btn-success m-b-sm  pull-right" >Buscar</button>
 
                                         </div>
 
 
                                         <div class="modal-footer">
-                                            <div class="form-group">
-                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Modelo: </label><br />
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Nombre: </label><br />
-                                            </div>
-                                            <div class="form-group ">
-                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Talla: </label><br />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Cantidad: </label><br />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="pull-left" style="color:#3e3939;font-weight:bold;font-size:16px;">Temporada: </label><br />
-                                            </div>
-                                            
-                                            <label class="fa-pull-right" style="color:#3e3939;font-weight:bold;font-size:16px;">Total de venta: </label>
-                                        </div>
-                                        <div class="form-group" style="margin-top:-3%">
-                                            <button style="margin-left:5%" id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
-                                            <button style="margin-right:-15%" id="cambiarInput" type="button" class="pull-right btn btn-primary">Confirmar</button>
+                                       
+                                        <div class="form-group">
+                                            <button id="guardarInput" data-dismiss="modal" type="button" class="pull-left btn btn-primary">Cancelar</button>
+                                            <button type="button" class="btn btn-success m-b-sm  pull-right">Aceptar</button>
                                         </div>
 
                                     </div>
 
 
 
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
