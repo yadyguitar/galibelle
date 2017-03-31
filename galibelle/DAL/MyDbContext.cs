@@ -33,7 +33,7 @@ namespace galibelle.DAL
             public DbSet<Tipo_strap> Tipo_strap{ get; set; }
             public DbSet<Usuarios> Usuarios{ get; set; }
             public DbSet<VendidoStraps> VendidoStraps{ get; set; }
-            public DbSet<VendidoStraps> VendidoSuelas { get; set; }
+            public DbSet<VendidoSuelas> VendidoSuelas { get; set; }
             public DbSet<Ventas> Ventas{ get; set; }
 
 

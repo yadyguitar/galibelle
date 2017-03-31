@@ -23,7 +23,7 @@ namespace galibelle.Controllers
             */
             //var lista = from x in Utils.GalibelleContext.Colores select x;
             var db = Utils.GalibelleContext;
-            db.Sucursales.Add(new Sucursales() { nombre_sucursal = "Almacen",direccion_sucursal="Mar de Japon #17",telefono_sucursal="2291404225" });
+            db.Sucursales.Add(new Sucursales() { nombre_sucursal = "Almacen", direccion_sucursal="Mar de Japon #17" ,telefono_sucursal="23223442" });
             db.SaveChanges();
             db.Usuarios.Add(new Usuarios() { IdSucursales=1,usuario="yadira", password="123"});
             db.Colores.Add(new Colores() { nombre_color = "black" });
